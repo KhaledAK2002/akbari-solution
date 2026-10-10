@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html" class="active">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search in dashboard...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User" id="topbarAvatar">
+                    <div class="user-info">
+                        <h4 id="topbarUserName">Mohammad Khalid</h4>
+                        <span id="topbarUserRole">Super Administrator</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="dashboard-content">
+            
+            <!-- Page Header -->
+            <div class="profile-page-header">
+                <div>
+                    <span class="breadcrumb-text">
+                        <a href="dashboard.html">Dashboard</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="my-profile.html">My Profile</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Account Settings</span>
+                    </span>
+                    <h1>Account Settings</h1>
+                    <p>Manage your account settings.</p>
+                </div>
+            </div>
+
+            <!-- Main Card with Tabs -->
+            <div class="account-settings-card">
+                
+                <div class="account-settings-layout">
+                    
+                    <!-- LEFT: Tabs Menu -->
+                    <aside class="settings-tabs-menu">
+                        <button class="settings-tab-btn" data-tab="password">
+                            <i class="fas fa-lock"></i>
+                            <span>Change Password</span>
+                        </button>
+                        <button class="settings-tab-btn active" data-tab="notifications">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </button>
+                    </aside>
+
+                    <!-- RIGHT: Tab Content -->
+                    <div class="settings-tab-content-wrapper">
+                        
+                        <!-- ============================= -->
+                        <!-- TAB 1: Change Password -->
+                        <!-- ============================= -->
+                        <div class="settings-tab-panel" id="tab-password">
+                            
+                            <div class="settings-panel-header">
+                                <div class="settings-panel-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div>
+                                    <h3>Change Password</h3>
+                                    <p>Update your password to keep your account secure.</p>
+                                </div>
+                            </div>
+
+                            <form id="passwordForm" class="settings-form">
+                                
+                                <div class="settings-form-group">
+                                    <label>Current Password <span class="required">*</span></label>
+                                    <div class="password-input-wrapper">
+                                        <input type="password" id="currentPassword" placeholder="Enter current password" required>
+                                        <button type="button" class="toggle-pw" data-target="currentPassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="settings-form-group">
+                                    <label>New Password <span class="required">*</span></label>
+                                    <div class="password-input-wrapper">
+                                        <input type="password" id="newPassword" placeholder="Enter new password" required>
+                                        <button type="button" class="toggle-pw" data-target="newPassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="password-strength" id="passwordStrength">
+                                        <div class="strength-bar"></div>
+                                        <div class="strength-bar"></div>
+                                        <div class="strength-bar"></div>
+                                        <div class="strength-bar"></div>
+                                        <span class="strength-text">Password strength</span>
+                                    </div>
+                                </div>
+
+                                <div class="settings-form-group">
+                                    <label>Confirm New Password <span class="required">*</span></label>
+                                    <div class="password-input-wrapper">
+                                        <input type="password" id="confirmPassword" placeholder="Confirm new password" required>
+                                        <button type="button" class="toggle-pw" data-target="confirmPassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <span class="password-match-msg" id="passwordMatchMsg"></span>
+                                </div>
+
+                                <div class="settings-form-actions">
+                                    <button type="button" class="btn-profile-cancel" onclick="document.getElementById('passwordForm').reset()">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn-profile-save">
+                                        <i class="fas fa-save"></i>
+                                        Update Password
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <!-- ============================= -->
+                        <!-- TAB 2: Notifications -->
+                        <!-- ============================= -->
+                        <div class="settings-tab-panel active" id="tab-notifications">
+                            
+                            <div class="settings-panel-header">
+                                <div class="settings-panel-icon">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div>
+                                    <h3>Notification Preferences</h3>
+                                    <p>Choose what notifications you want to receive.</p>
+                                </div>
+                            </div>
+
+                            <div class="notifications-list">
+                                
+                                <!-- Email Notifications -->
+                                <div class="notification-item">
+                                    <div class="notification-item-icon email-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="notification-item-text">
+                                        <h4>Email Notifications</h4>
+                                        <p>Receive important account updates via email.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="notifEmail" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                                <!-- Order Notifications -->
+                                <div class="notification-item">
+                                    <div class="notification-item-icon order-icon">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <div class="notification-item-text">
+                                        <h4>Order Notifications</h4>
+                                        <p>Get notified when a new order is placed.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="notifOrder" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                                <!-- Product Updates -->
+                                <div class="notification-item">
+                                    <div class="notification-item-icon product-icon">
+                                        <i class="fas fa-box"></i>
+                                    </div>
+                                    <div class="notification-item-text">
+                                        <h4>Product Updates</h4>
+                                        <p>Receive notifications about new products and offers.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="notifProduct">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                                <!-- System Notifications -->
+                                <div class="notification-item">
+                                    <div class="notification-item-icon system-icon">
+                                        <i class="fas fa-cog"></i>
+                                    </div>
+                                    <div class="notification-item-text">
+                                        <h4>System Notifications</h4>
+                                        <p>Get notified about website updates and maintenance.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="notifSystem" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                                <!-- Marketing Updates -->
+                                <div class="notification-item">
+                                    <div class="notification-item-icon marketing-icon">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <div class="notification-item-text">
+                                        <h4>Marketing Updates</h4>
+                                        <p>Receive news, promotions and marketing emails.</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" id="notifMarketing">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="settings-form-actions">
+                                <button type="button" class="btn-profile-save" id="saveNotificationsBtn">
+                                    <i class="fas fa-save"></i>
+                                    Save Changes
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script>
+    // ⚠️ محافظت: پنهان کردن Users/Permissions از غیر-Super-Admin
+    (function() {
+        try {
+            const userData = localStorage.getItem('akbari_user');
+            if (!userData) return;
+            
+            const user = JSON.parse(userData);
+            const role = user.role;
+            const isSuper = role === 'Super Administrator' || role === 'super_admin';
+            
+            if (!isSuper) {
+                // مخفی کردن Super Admin از dropdown ها
+                document.querySelectorAll('#userRole, #userRoleFilter, #permRoleSelect').forEach(select => {
+                    select.querySelectorAll('option[value="super_admin"], option[value="Super Administrator"]').forEach(opt => opt.remove());
+                });
+            }
+        } catch (e) {}
+    })();
+    </script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/account-settings.js"></script>
+    <script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

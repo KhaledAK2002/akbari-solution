@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Home - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html" class="active">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search in dashboard...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User">
+                    <div class="user-info">
+                        <h4>Mohammad Khalid</h4>
+                        <span>Administrator</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="dashboard-content">
+            
+            <!-- Page Header -->
+            <div class="page-header">
+                <div>
+                    <span class="breadcrumb-text">
+                        <i class="fas fa-home"></i> Dashboard 
+                        <i class="fas fa-chevron-right"></i> Pages 
+                        <i class="fas fa-chevron-right"></i> <span>Home</span>
+                    </span>
+                    <h1>Edit Home Page</h1>
+                    <p>Update the content, images and settings for your website home page. Changes will be reflected on the live site.</p>
+                </div>
+                <button class="btn-save-changes" id="saveHomeBtn">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+
+            <!-- Main Grid: Hero Section + Live Preview -->
+            <div class="home-management-grid">
+                
+                <!-- LEFT: Hero Section Form -->
+                <div class="form-section">
+                    <div class="form-section-header">
+                        <i class="fas fa-image"></i>
+                        <div>
+                            <h3>Hero Section (Main Banner)</h3>
+                            <p style="font-size: 12px; color: #A0AEC0; font-weight: 400; margin-top: 3px;">Manage the main banner content displayed at the top of the home page.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Small Title</label>
+                        <input type="text" class="form-input" id="heroSmallTitle" value="Innovative Solutions for a Better Future">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Main Heading</label>
+                        <textarea class="form-textarea" id="heroMainHeading" rows="3">Premium Databases, Software & Applications for a Smarter Tomorrow</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-textarea" id="heroDescription" rows="4">We design and provide high-quality ready-to-use databases, software systems, web applications and mobile apps to help individuals, small businesses and organizations work smarter, faster and more efficiently.</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Hero Image</label>
+                        <div class="home-hero-image-preview">
+                            <img src="assets/images/Developer-Workpace-Mockup.png" alt="Hero Image" id="heroPreviewImg">
+                        </div>
+                        <div class="home-image-actions">
+                            <label class="btn-choose-image">
+                                <i class="fas fa-image"></i> Choose Image
+                                <input type="file" id="heroImageInput" accept="image/*" hidden>
+                            </label>
+                            <button type="button" class="btn-remove-image" id="removeHeroImageBtn">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <p class="image-hint">Recommended size: 1920 × 800 (JPG, PNG)</p>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Live Preview -->
+                <div class="form-section home-preview-section">
+                    <div class="form-section-header">
+                        <i class="fas fa-eye"></i>
+                        <div>
+                            <h3>Live Preview</h3>
+                            <p style="font-size: 12px; color: #A0AEC0; font-weight: 400; margin-top: 3px;">This is how the hero section will look on your website.</p>
+                        </div>
+                    </div>
+
+                    <div class="live-preview-box">
+                        <img src="assets/images/Developer-Workpace-Mockup.png" alt="Preview" id="previewHeroImg">
+                        <div class="preview-overlay">
+                            <div class="preview-content">
+                                <span class="preview-badge" id="previewSmallTitle">Innovative Solutions for a Better Future</span>
+                                <h2 id="previewMainHeading">Premium Databases, Software & Applications for a Smarter Tomorrow</h2>
+                                <p id="previewDescription">We design and provide high-quality ready-to-use databases, software systems, web applications and mobile apps...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Features Section (Bottom) -->
+            <div class="form-section" style="margin-top: 25px;">
+                <div class="form-section-header">
+                    <i class="fas fa-cog"></i>
+                    <div>
+                        <h3>Features Section (Bottom Icons)</h3>
+                        <p style="font-size: 12px; color: #A0AEC0; font-weight: 400; margin-top: 3px;">Manage the four feature items displayed below the hero section.</p>
+                    </div>
+                </div>
+
+                <div class="home-features-grid" id="featuresGrid">
+                    <!-- Feature 1 -->
+                    <div class="home-feature-item" data-index="0">
+                        <div class="feature-item-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="feature-item-fields">
+                            <label>Title</label>
+                            <input type="text" class="form-input feature-title-input" value="Instant Download">
+                            <label>Description</label>
+                            <input type="text" class="form-input feature-desc-input" value="Get your product immediately">
+                        </div>
+                        <button type="button" class="btn-delete-feature" onclick="deleteFeature(this)">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="home-feature-item" data-index="1">
+                        <div class="feature-item-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-item-fields">
+                            <label>Title</label>
+                            <input type="text" class="form-input feature-title-input" value="Secure & Reliable">
+                            <label>Description</label>
+                            <input type="text" class="form-input feature-desc-input" value="100% safe and trusted">
+                        </div>
+                        <button type="button" class="btn-delete-feature" onclick="deleteFeature(this)">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="home-feature-item" data-index="2">
+                        <div class="feature-item-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="feature-item-fields">
+                            <label>Title</label>
+                            <input type="text" class="form-input feature-title-input" value="24/7 Support">
+                            <label>Description</label>
+                            <input type="text" class="form-input feature-desc-input" value="We are here to help">
+                        </div>
+                        <button type="button" class="btn-delete-feature" onclick="deleteFeature(this)">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="home-feature-item" data-index="3">
+                        <div class="feature-item-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="feature-item-fields">
+                            <label>Title</label>
+                            <input type="text" class="form-input feature-title-input" value="Regular Updates">
+                            <label>Description</label>
+                            <input type="text" class="form-input feature-desc-input" value="Always up to date">
+                        </div>
+                        <button type="button" class="btn-delete-feature" onclick="deleteFeature(this)">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

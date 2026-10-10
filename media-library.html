@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Library - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html" class="active">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search in dashboard...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User">
+                    <div class="user-info">
+                        <h4>Mohammad Khalid</h4>
+                        <span>Administrator</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="dashboard-content">
+            
+            <!-- Page Header with Storage -->
+            <div class="media-page-header">
+                <div class="media-header-left">
+                    <span class="breadcrumb-text">
+                        <i class="fas fa-home"></i> Dashboard 
+                        <i class="fas fa-chevron-right"></i> <span>Media Library</span>
+                    </span>
+                    <h1>Media Library</h1>
+                    <p>Manage all images and media files used on your website. Upload, view, edit or delete files.</p>
+                </div>
+                
+                <div class="media-header-right">
+                    <!-- Storage Usage -->
+                    <div class="storage-usage-box">
+                        <div class="storage-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="storage-info">
+                            <span>Storage Usage</span>
+                            <strong><span id="storageUsed">0</span> of <span id="storageLimit">500</span> MB</strong>
+                            <div class="storage-progress">
+                                <div class="storage-progress-bar" id="storageProgressBar" style="width: 0%;"></div>
+                            </div>
+                            <small id="storagePercent">0%</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Upload Button -->
+                    <label class="btn-upload-files">
+                        <i class="fas fa-upload"></i> Upload Files
+                        <input type="file" id="mediaFileInput" accept="image/*,application/pdf,.doc,.docx,.zip" multiple hidden>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="media-filter-bar">
+                <div class="media-tabs">
+                    <button class="media-tab active" data-type="all">
+                        <i class="fas fa-image"></i> All Files (<span id="countAll">0</span>)
+                    </button>
+                    <button class="media-tab" data-type="image">
+                        <i class="fas fa-image"></i> Images (<span id="countImages">0</span>)
+                    </button>
+                    <button class="media-tab" data-type="document">
+                        <i class="fas fa-file-alt"></i> Documents (<span id="countDocs">0</span>)
+                    </button>
+                    <button class="media-tab" data-type="other">
+                        <i class="fas fa-file"></i> Others (<span id="countOthers">0</span>)
+                    </button>
+                </div>
+
+                <div class="media-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="mediaSearchInput" placeholder="Search files...">
+                </div>
+
+                <select class="media-type-filter" id="mediaTypeFilter">
+                    <option value="">All Types</option>
+                    <option value="image">Images</option>
+                    <option value="document">Documents</option>
+                    <option value="other">Others</option>
+                </select>
+
+                <div class="media-view-toggle">
+                    <button class="view-btn active" data-view="grid" title="Grid View">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" title="List View">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Media Grid -->
+            <div class="media-grid" id="mediaGrid">
+                <!-- Media items will be rendered by JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="media-empty-state" id="mediaEmptyState" style="display: none;">
+                <i class="fas fa-images"></i>
+                <h3>No Files Found</h3>
+                <p>Upload your first file to get started.</p>
+            </div>
+
+            <!-- Pagination -->
+            <div class="media-pagination" id="mediaPagination">
+                <!-- Pagination will be rendered by JS -->
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/sidebar-toggle.js"></script>
+    </body>
+</html>

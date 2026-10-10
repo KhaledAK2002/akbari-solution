@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html" class="active">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User">
+                    <div class="user-info">
+                        <h4>Mohammad Khalid</h4>
+                        <span>Administrator</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="dashboard-content">
+            
+            <!-- Page Header -->
+            <div class="messages-page-header">
+                <div class="messages-header-left">
+                    <div class="messages-title-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <span class="breadcrumb-text">
+                            <i class="fas fa-home"></i> Dashboard 
+                            <i class="fas fa-chevron-right"></i> <span>Messages</span>
+                        </span>
+                        <h1>Messages</h1>
+                        <p>View and manage messages from your website contact form.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="messages-stats-grid">
+                <div class="msg-stat-card">
+                    <div class="msg-stat-icon blue">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3 id="statTotal">0</h3>
+                        <p>Total Messages</p>
+                    </div>
+                </div>
+                <div class="msg-stat-card">
+                    <div class="msg-stat-icon red">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <div>
+                        <h3 id="statUnread">0</h3>
+                        <p>Unread</p>
+                    </div>
+                </div>
+                <div class="msg-stat-card">
+                    <div class="msg-stat-icon green">
+                        <i class="fas fa-reply"></i>
+                    </div>
+                    <div>
+                        <h3 id="statReplied">0</h3>
+                        <p>Replied</p>
+                    </div>
+                </div>
+                <div class="msg-stat-card">
+                    <div class="msg-stat-icon orange">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div>
+                        <h3 id="statArchived">0</h3>
+                        <p>Archived</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Grid -->
+            <div class="messages-grid">
+                
+                <!-- LEFT: Messages List -->
+                <div class="messages-list-panel">
+                    
+                    <div class="messages-list-header">
+                        <h3>All Messages</h3>
+                    </div>
+
+                    <div class="messages-filters">
+                        <div class="messages-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="msgSearchInput" placeholder="Search messages...">
+                        </div>
+                        <select class="messages-filter-select" id="msgStatusFilter">
+                            <option value="">All Messages</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                            <option value="replied">Replied</option>
+                            <option value="archived">Archived</option>
+                        </select>
+                    </div>
+
+                    <div class="messages-list" id="messagesList">
+                        <!-- Messages will be rendered by JS -->
+                    </div>
+
+                    <div class="messages-pagination" id="messagesPagination">
+                        <!-- Pagination will be rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- RIGHT: Message Details -->
+                <div class="message-details-panel" id="messageDetailsPanel">
+                    
+                    <!-- Empty state -->
+                    <div class="message-empty-state" id="emptyState">
+                        <i class="far fa-envelope"></i>
+                        <h3>Select a message</h3>
+                        <p>Click on a message from the list to view its details.</p>
+                    </div>
+
+                    <!-- Details will be rendered by JS -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/sidebar-toggle.js"></script>
+    </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page-name="Products">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Akbari Solution Logo">
+            </div>
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search software, databases, apps...">
+                </div>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span>0</span></a>
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PRODUCTS HERO SECTION -->
+    <section class="products-hero">
+        <div class="container products-hero-container">
+            <div class="products-hero-content">
+                <span class="sub-title">OUR PRODUCTS</span>
+                <h1>Ready-to-Use Databases <br> and <span class="text-blue">Software Solutions</span></h1>
+                <p>Explore our collection of ready-to-use databases, software systems and applications designed to help you work smarter and faster.</p>
+            </div>
+            <div class="products-hero-image">
+                <img src="assets/images/Developer-Workpace-Mockup.png" alt="Products Hero">
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER TABS -->
+    <section class="filter-tabs-section">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Products</button>
+                <button class="filter-tab" data-filter="Databases">Databases</button>
+                <button class="filter-tab" data-filter="Software">Software Systems</button>
+                <button class="filter-tab" data-filter="Web Apps">Web Applications</button>
+                <button class="filter-tab" data-filter="Mobile Apps">Mobile Apps</button>
+                <button class="filter-tab" data-filter="Business Tools">Business Tools</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS GRID -->
+    <section class="products-section section-padding">
+        <div class="container">
+            <div class="products-grid-frontend" id="productsGrid">
+                <!-- محصولات به صورت داینامیک توسط JavaScript اضافه میشن -->
+            </div>
+
+            <!-- No Products Message -->
+            <div class="no-products-message" id="noProductsMessage" style="display: none;">
+                <i class="fas fa-box-open"></i>
+                <h3>No Products Available</h3>
+                <p>Products will appear here once added from the dashboard.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES BAR -->
+    <section class="features-section-frontend">
+        <div class="container features-bar-frontend">
+            <div class="feature-item-frontend">
+                <i class="fas fa-download"></i>
+                <div>
+                    <h4>Instant Download</h4>
+                    <p>Get your product immediately</p>
+                </div>
+            </div>
+            <div class="feature-item-frontend">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>Secure & Reliable</h4>
+                    <p>100% safe and trusted</p>
+                </div>
+            </div>
+            <div class="feature-item-frontend">
+                <i class="fas fa-headset"></i>
+                <div>
+                    <h4>24/7 Support</h4>
+                    <p>We are here to help</p>
+                </div>
+            </div>
+            <div class="feature-item-frontend">
+                <i class="fas fa-sync-alt"></i>
+                <div>
+                    <h4>Regular Updates</h4>
+                    <p>Always up to date</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <img src="assets/images/logo.png" alt="Akbari Solution Logo">
+                <p>Innovative Solutions for a Better Future</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Product Categories</h4>
+                <ul>
+                    <li><a href="products.html?filter=Databases">Databases</a></li>
+                    <li><a href="products.html?filter=Software">Software Systems</a></li>
+                    <li><a href="products.html?filter=Web%20Apps">Web Applications</a></li>
+                    <li><a href="products.html?filter=Mobile%20Apps">Mobile Apps</a></li>
+                    <li><a href="products.html?filter=Business%20Tools">Business Tools</a></li>
+                </ul>
+            </div>
+                        
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Kabul, Afghanistan</span></li>
+                    <li><i class="fas fa-envelope"></i> <span id="footerEmail">khalednaseri786@gmail.com</span></li>
+                    <li><i class="fas fa-phone-alt"></i> <span id="footerPhone">+93 70 450 70 60</span></li>
+                    <li><i class="fab fa-whatsapp"></i> <span id="footerWhatsApp">+93 782 311 365</span></li>
+                </ul>
+                <div class="footer-tagline">
+                    <span>Technology for a Better Tomorrow</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+                <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script src="js/image-db.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/frontend-products.js"></script>
+</body>
+</html>

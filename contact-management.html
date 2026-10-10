@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Contact - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="active">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html" class="active">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User">
+                    <div class="user-info">
+                        <h4>Mohammad Khalid</h4>
+                        <span>Administrator</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="dashboard-content">
+            
+            <!-- Page Header -->
+            <div class="page-header">
+                <div>
+                    <span class="breadcrumb-text">
+                        <i class="fas fa-home"></i> Dashboard 
+                        <i class="fas fa-chevron-right"></i> Pages 
+                        <i class="fas fa-chevron-right"></i> <span>Contact</span>
+                    </span>
+                    <h1>Edit Contact Page</h1>
+                    <p>Manage your Contact page content and information. This information will be displayed on your website.</p>
+                </div>
+                <button class="btn-save-changes" id="saveContactBtn">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="contact-management-grid">
+                
+                <!-- LEFT COLUMN -->
+                <div class="contact-left-col">
+                    
+                    <!-- Page Content -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-file-alt"></i>
+                            <h3>Page Content</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Page Title <span class="required">*</span></label>
+                            <input type="text" class="form-input" id="contactPageTitle" placeholder="Contact Us" value="Contact Us">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Short Description <span class="required">*</span></label>
+                            <textarea class="form-textarea" id="contactShortDesc" rows="3" maxlength="300" placeholder="Write a short description...">Have a question, a project in mind, or want to learn more about our services? We'd love to hear from you. Get in touch with us through the form below or using our contact information.</textarea>
+                            <span class="char-counter"><span id="shortDescCount">158</span>/300</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Main Content <span class="required">*</span></label>
+                            <div class="rich-editor">
+                                <div class="editor-toolbar">
+                                    <select class="editor-dropdown" id="formatSelect">
+                                        <option value="p">Paragraph</option>
+                                        <option value="h1">Heading 1</option>
+                                        <option value="h2">Heading 2</option>
+                                        <option value="h3">Heading 3</option>
+                                    </select>
+                                    <button type="button" class="toolbar-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                                    <button type="button" class="toolbar-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                                    <button type="button" class="toolbar-btn" data-command="underline"><i class="fas fa-underline"></i></button>
+                                    <span class="toolbar-separator"></span>
+                                    <button type="button" class="toolbar-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                                    <button type="button" class="toolbar-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                                    <span class="toolbar-separator"></span>
+                                    <button type="button" class="toolbar-btn" data-command="createLink"><i class="fas fa-link"></i></button>
+                                </div>
+                                <div class="editor-textarea" id="contactMainContent" contenteditable="true" data-placeholder="Write main content...">At Akbari Solution, we are always ready to help you. Whether you have a question, need a custom software solution, or want to discuss a new project, our team is here to assist you. Fill out the form and we will get back to you as soon as possible.</div>
+                            </div>
+                            <span class="char-counter"><span id="mainContentCount">233</span>/1000</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="contact-right-col">
+                    
+                    <!-- Contact Page Image -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-image"></i>
+                            <h3>Contact Page Image <span class="required">*</span></h3>
+                        </div>
+
+                        <div class="contact-image-preview" id="imagePreview">
+                            <img src="assets/images/office-dashboard.png" alt="Contact Page Image" id="previewImg">
+                        </div>
+
+                        <div class="contact-image-actions">
+                            <label class="btn-choose-image">
+                                <i class="fas fa-image"></i> Choose Image
+                                <input type="file" id="imageInput" accept="image/*" hidden>
+                            </label>
+                            <button type="button" class="btn-remove-image" id="removeImageBtn">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+
+                        <p class="image-hint">Recommended size: 1920 × 600 (JPG, PNG)</p>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-phone-alt"></i>
+                            <h3>Contact Information</h3>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" class="form-input" id="contactAddress" value="Kabul, Afghanistan">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="text" class="form-input" id="contactPhone" value="+93 782 311 365">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" class="form-input" id="contactEmail" value="info@akbarisolution.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">WhatsApp (Optional)</label>
+                                <div class="input-with-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <input type="text" class="form-input" id="contactWhatsApp" value="+93 784 644 558">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Working Hours & Map -->
+                    <div class="form-row">
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-clock"></i>
+                                <h3>Working Hours</h3>
+                            </div>
+                            <textarea class="form-textarea" id="workingHours" rows="4">Mon - Sat: 8:00 AM - 6:00 PM
+Sunday: Closed</textarea>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-map"></i>
+                                <h3>Map Embed Code</h3>
+                            </div>
+                            <textarea class="form-textarea map-embed-input" id="mapEmbedCode" rows="4" placeholder="Paste Google Maps iframe code here..."></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

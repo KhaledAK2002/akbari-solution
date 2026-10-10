@@ -1,0 +1,201 @@
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║        AKBARI SOLUTION — MASTER CHANGELOG                ║
+║                                                          ║
+║        Version: 1.0                                      ║
+║        Status: 99% — Ready for Host Testing              ║
+║        Last Update: 2026-10-10                           ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 وضعیت کلی پروژه
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Phase 1-12:   ✅ Backend + Frontend (Local)
+Phase 13A:    ✅ Host Deployment (InfinityFree)
+Phase 13B:    ✅ رفع خطاهای Host
+Phase 13C:    ✅ Config Auto-Detection
+Phase 14:     🔄 تست هاست ← الان اینجاییم
+Phase 15:     ⏳ تست Permission Employee
+Phase 16:     ⏳ Management Save
+Phase 17:     ⏳ Avatar Upload
+Phase 18:     ⏳ تست نهایی + تحویل
+
+پیشرفت کلی: ۹۹٪ ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ کارهای انجام‌شده
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 Phase 1-12: Backend + Frontend (Local)
+   - ساخت کامل API با PHP (13 Controller، 10 Model)
+   - Middleware (Auth, Cors) + JWT + Router + Autoloader
+   - ساخت Frontend (HTML/CSS/JS)
+   - سیستم احراز هویت + Permissions
+   - سیستم Products / Services / Orders / Messages / Media
+   - Website Settings (General, Appearance, Contact, E-commerce)
+   - Backup / Restore / Activity Log
+
+🚀 Phase 13A: Host Deployment
+   - پروژه روی InfinityFree آپلود شد
+
+🔧 Phase 13B: رفع خطاهای Host
+   - .htaccess سازگار با InfinityFree
+   - Router basePath auto-detect
+   - Authorization header از URL token
+   - JWT Autoloader (case-insensitive)
+   - Database Connection
+   - Contact Form بدون توکن
+   - Order Email skip روی localhost
+
+🟡 Phase 13C: Config Auto-Detection ✅ کامل شد
+   ۱. Auto-detect محیط:
+      - api/config.php → تشخیص localhost/production
+      - api/config/database.php → تشخیص خودکار دیتابیس
+      - js/config.js → تشخیص محیط + API_BASE
+
+   ۲. Find & Replace روی ۱۲ فایل JS:
+      همه به (window.API_BASE || 'http://localhost/Akbari-Solution/api/v1') تبدیل شدن:
+      - about.js, main.js, login.js
+      - contact.js, checkout.js, api-client.js
+      - sidebar-badge.js, sidebar-toggle.js
+      - permissions-guard.js, global-settings.js
+      - dashboard.js, add-product.html
+
+   ۳. اضافه کردن config.js به ۱۶ HTML
+
+   ۴. AuthMiddleware.php → پشتیبانی از ?token= در URL
+
+   ۵. dashboard.js → رفع Syntax Error خط ۴۶۲۵ (downloadBackup)
+
+   ۶. دیتابیس localhost → بازیابی کامل از بکاپ
+
+   ۷. fix-login.php → ساخت Super Admin با hash واقعی
+
+   ✅ نتیجه: localhost ۱۰۰٪ کار می‌کند
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 کارهای باقی‌مانده
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔴 Phase 14: تست هاست (InfinityFree)
+   1. Export تازه از دیتابیس localhost
+   2. آپلود پروژه روی هاست (FTP)
+   3. Import بکاپ روی هاست (phpMyAdmin)
+   4. حذف index2.html از هاست
+   5. تست Login روی هاست
+   6. تست Dashboard و همه صفحات
+   7. رفع خطاهای احتمالی
+
+🔴 Phase 15: تست Permission (Employee)
+   - تست Employee access روی هاست
+   - رفع مشکل Permissions Guard
+
+🔴 Phase 16: Management Save
+   - تست ذخیره تنظیمات از صفحات Management
+   - تست Employee Permission روی صفحات
+
+🔴 Phase 17: Avatar Upload
+   - رفع مشکل آواتار از localhost در Topbar
+   - تست آپلود آواتار روی هاست
+
+🔴 Phase 18: تست نهایی + تحویل
+   - چک کردن همه HTMLها که config.js دارن
+   - رفع مشکلات باقی‌مونده
+   - تست کامل همه صفحات
+   - تحویل پروژه
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📌 اطلاعات مهم
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 هاست (InfinityFree)
+   URL:          https://akbarisolution.infinityfreeapp.com
+   FTP Host:     ftpupload.net
+   FTP User:     if0_43119523
+   FTP Pass:     (پسورد FTP)
+   MySQL Host:   sql204.infinityfree.com
+   MySQL User:   if0_43119523
+   MySQL DB:     if0_43119523_akbari_solution
+   MySQL Pass:   (همون FTP)
+
+💻 Localhost
+   URL:          http://localhost/Akbari-Solution
+   API:          http://localhost/Akbari-Solution/api/v1
+   DB Name:      akbari_solution
+   DB User:      root
+   DB Pass:      (خالی)
+
+🔑 اطلاعات ورود
+   Email:        khalednaseri786@gmail.com
+   Password:     admin
+   Role:         Super Administrator
+
+📁 بکاپ
+   مسیر:         C:\Users\dell\Desktop\Akbari-Backup\
+   فایل:         akbari_solution.sql
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ نکات مهم
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+قبل از هر تغییر مهم:
+   1. از دیتابیس Export بگیر
+   2. از کدها بکاپ بگیر (کپی پوشه پروژه)
+
+فایل‌هایی که باید پاک شن:
+   - fix-login.php — بعد از استفاده
+   - fix-sidebar.php — بعد از استفاده
+   - index2.html — روی هاست (InfinityFree default)
+   - فایل‌های .bak — بعد از تأیید
+
+قواعد پروژه:
+   - PHP بمونه (نه Django/Python) — چون InfinityFree رایگان فقط PHP پشتیبانی می‌کنه
+   - Auto-detect محیط — همه فایل‌ها باید خودشون localhost/production رو تشخیص بدن
+   - window.API_BASE — همه JSها از این استفاده کنن، نه localhost مستقیم
+   - config.js — باید در همه HTMLها قبل از api-client.js لود بشه
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 مرحله بعدی (فوری)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+آماده‌سازی برای آپلود روی هاست:
+
+   1. ⬜ Export دیتابیس (فایل .sql تازه)
+   2. ⬜ پاک کردن فایل‌های اضافه (fix-login.php, fix-sidebar.php, .bak)
+   3. ⬜ چک فایل‌های نهایی برای آپلود
+   4. ⬜ آپلود با FTP
+   5. ⬜ Import دیتابیس روی هاست
+   6. ⬜ حذف index2.html
+   7. ⬜ تست login + dashboard روی هاست
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 تاریخچه تغییرات
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2026-10-08
+   - Phase 13A: اولین آپلود روی هاست
+   - Phase 13B: رفع خطاهای اولیه
+
+2026-10-10
+   - Phase 13C کامل شد:
+     - Find & Replace روی ۱۲ فایل JS
+     - اضافه config.js به ۱۶ HTML
+     - رفع Syntax Error در dashboard.js
+     - بازیابی دیتابیس localhost
+     - AuthMiddleware ?token= support
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+تهیه‌کننده: Akbari Solution Development Team
+نسخه: 1.0
+وضعیت: آماده برای Phase 14 (تست هاست)
+
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║              END OF CHANGELOG                            ║
+║                                                          ║
+║        Next: Phase 14 — Host Testing                     ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝

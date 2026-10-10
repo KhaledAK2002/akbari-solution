@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Settings - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html" class="active">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search in dashboard...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User">
+                    <div class="user-info">
+                        <h4>Mohammad Khalid</h4>
+                        <span>Super Administrator</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            
+            <!-- Page Header -->
+            <div class="ws-page-header">
+                <div>
+                    <span class="breadcrumb-text">
+                        <i class="fas fa-home"></i> Dashboard 
+                        <i class="fas fa-chevron-right"></i> 
+                        <a href="website-settings.html">Website Settings</a>
+                        <i class="fas fa-chevron-right"></i> 
+                        <a href="website-settings.html">E-commerce</a>
+                        <i class="fas fa-chevron-right"></i> 
+                        <span id="breadcrumbMethod">Payment Method</span>
+                    </span>
+                    <h1 id="pageTitle">Payment Settings</h1>
+                    <p id="pageDesc">Configure payment method for your customers.</p>
+                </div>
+                <a href="website-settings.html" class="btn-view-website" style="border-color: var(--primary-blue); color: var(--primary-blue);">
+                    <i class="fas fa-arrow-left"></i> Back to E-commerce
+                </a>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="ws-grid">
+                
+                <!-- LEFT: Settings Form -->
+                <div class="ws-left-col">
+                    
+                    <!-- General Information -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-cog"></i>
+                            <div>
+                                <h3>General Information</h3>
+                                <p class="section-sub">Set up your account details and instructions.</p>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Account Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="pmAccountName" placeholder="Enter account name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Account Number <span class="required">*</span></label>
+                                <div class="copy-input">
+                                    <input type="text" class="form-input" id="pmAccountNumber" placeholder="Enter account number">
+                                    <button class="btn-copy" onclick="copyValue('pmAccountNumber')"><i class="far fa-copy"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Account Type</label>
+                                <select class="form-select" id="pmAccountType">
+                                    <option value="Personal">Personal</option>
+                                    <option value="Business">Business</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Currency</label>
+                                <select class="form-select" id="pmCurrency">
+                                    <option value="AFN">AFN - Afghan Afghani (؋)</option>
+                                    <option value="USD">USD - US Dollar ($)</option>
+                                    <option value="EUR">EUR - Euro (€)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Logo -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-image"></i>
+                            <div>
+                                <h3>Payment Method Logo</h3>
+                                <p class="section-sub">Upload the logo to display on checkout page.</p>
+                            </div>
+                        </div>
+
+                        <div class="logo-upload-row">
+                            <div class="logo-preview-box">
+                                <img id="pmLogoPreview" src="assets/images/bank-hesabpay.png" alt="Logo">
+                            </div>
+                            <div class="logo-upload-actions">
+                                <label class="btn-upload-small">
+                                    <i class="fas fa-upload"></i> Change Image
+                                    <input type="file" id="pmLogoInput" accept="image/*" hidden>
+                                </label>
+                                <button type="button" class="btn-remove-small" onclick="removePMLogo()">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                                <p class="upload-hint">JPG, PNG (Max 2MB)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Instructions -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-file-alt"></i>
+                            <div>
+                                <h3>Payment Instructions</h3>
+                                <p class="section-sub">These instructions will be shown to customers at checkout.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-textarea" id="pmInstructions" rows="5" placeholder="Write payment instructions..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Notification Settings</h3>
+                                <p class="section-sub">Get notified when a customer submits a payment.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Order Notification Email <span class="required">*</span></label>
+                            <input type="email" class="form-input" id="pmOrderEmail" placeholder="orders@akbarisolution.com">
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="pmSendEmailNotification" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Send Email Notification</strong>
+                                <span>Receive email when customer submits payment proof.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: Preview & Options -->
+                <div class="ws-right-col">
+                    
+                    <!-- Preview -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-eye"></i>
+                            <div>
+                                <h3>Preview (How it looks to customers)</h3>
+                                <p class="section-sub">This is how it will be displayed on the checkout page.</p>
+                            </div>
+                        </div>
+
+                        <div class="payment-preview-box">
+                            <div class="payment-preview-header">
+                                <div class="payment-preview-logo">
+                                    <img id="pmPreviewLogo" src="assets/images/bank-hesabpay.png" alt="Logo">
+                                </div>
+                                <div class="payment-preview-info">
+                                    <h4 id="pmPreviewName">HesabPay</h4>
+                                    <p>Pay via <span id="pmPreviewName2">HesabPay</span></p>
+                                </div>
+                            </div>
+                            <div class="payment-preview-body">
+                                <div class="payment-instruction-header">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Payment Instructions</span>
+                                </div>
+                                <p id="pmPreviewInstructions" class="payment-instruction-text">Payment instructions will appear here...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QR Code -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-qrcode"></i>
+                            <div>
+                                <h3>QR Code (Optional)</h3>
+                                <p class="section-sub">Upload a QR code to make it easier for customers to pay.</p>
+                            </div>
+                        </div>
+
+                        <div class="qr-upload-row">
+                            <div class="qr-preview-box">
+                                <img id="pmQrPreview" src="" alt="QR Code" style="display: none;">
+                                <div id="pmQrEmpty" class="qr-empty">
+                                    <i class="fas fa-qrcode"></i>
+                                </div>
+                            </div>
+                            <div class="qr-upload-actions">
+                                <label class="btn-upload-small">
+                                    <i class="fas fa-upload"></i> Change QR Code
+                                    <input type="file" id="pmQrInput" accept="image/*" hidden>
+                                </label>
+                                <button type="button" class="btn-remove-small" onclick="removePMQR()">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Options -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-cog"></i>
+                            <div>
+                                <h3>Additional Options</h3>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="pmShowOnCheckout" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Show on Checkout</strong>
+                                <span>Display this payment method to customers.</span>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="pmSetAsDefault">
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Set as Default Payment Method</strong>
+                                <span>Make this the default selected option.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Actions -->
+            <div class="ws-actions">
+                <button class="btn-save-settings" onclick="savePaymentSettings()">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+                <button class="btn-reset-settings" onclick="resetPaymentSettings()">
+                    <i class="fas fa-sync-alt"></i> Reset to Default
+                </button>
+            </div>
+
+        </div>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/payment-settings.js"></script>
+    <script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

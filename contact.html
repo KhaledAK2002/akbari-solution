@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="contact-page">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Akbari Solution Logo">
+            </div>
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search software, databases, apps...">
+                </div>
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTACT HERO -->
+    <section class="contact-hero">
+        <div class="contact-hero-bg">
+            <img src="assets/images/office-dashboard.png" alt="Contact Hero">
+        </div>
+        <div class="container contact-hero-content">
+            <span class="sub-title">CONTACT US</span>
+            <h1 id="contactHeroTitle">Let's Work <span class="text-blue">Together</span></h1>
+            <p id="contactHeroDesc">Have a question, a project in mind, or want to learn more about our services? We'd love to hear from you. Our team is ready to assist you and provide the best solutions for your needs.</p>
+
+            <!-- Trust Badges -->
+            <div class="contact-trust-badges">
+                <div class="contact-trust-badge">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <strong>Quick Response</strong>
+                        <span>We reply as soon as possible</span>
+                    </div>
+                </div>
+                <div class="contact-trust-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <strong>Trusted Support</strong>
+                        <span>Reliable and professional</span>
+                    </div>
+                </div>
+                <div class="contact-trust-badge">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <strong>Let's Create</strong>
+                        <span>Ideas into real solutions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT MAIN -->
+    <section class="contact-main-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- LEFT: Contact Information -->
+                <div class="contact-info-box">
+                    <h3>Contact Information</h3>
+                    <p class="box-subtitle">Reach out to us through any of the following channels. We're here to help!</p>
+
+                    <ul class="contact-info-list">
+                        <li>
+                            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <span>Our Location</span>
+                                <strong id="infoAddress">Kabul, Afghanistan</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <span>Phone</span>
+                                <strong id="infoPhone">+93 782 311 365</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-icon whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <span>WhatsApp</span>
+                                <strong id="infoWhatsApp">+93 784 644 558</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <span>Email</span>
+                                <strong id="infoEmail">info@akbarisolution.com</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <span>Working Hours</span>
+                                <strong id="infoHours">Mon - Sat: 8:00 AM - 6:00 PM</strong>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- Social Links -->
+                    <div class="contact-social-block">
+                        <h4>Follow Us</h4>
+                        <div class="contact-social-links">
+                            <a href="#" class="social-fb"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-ig"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-li"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-yt"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MIDDLE: Send Us a Message -->
+                <div class="contact-form-box">
+                    <h3>Send Us a Message</h3>
+                    <p class="box-subtitle">Fill out the form below and we will get back to you as soon as possible.</p>
+
+                    <form id="contactForm">
+                        <div class="contact-form-row">
+                            <div class="contact-input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="senderName" placeholder="Your Name *" required>
+                            </div>
+                            <div class="contact-input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="senderEmail" placeholder="Your Email *" required>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-row">
+                            <div class="contact-input-group">
+                                <i class="fas fa-phone"></i>
+                                <input type="text" id="senderPhone" placeholder="Your Phone (Optional)">
+                            </div>
+                            <div class="contact-input-group select-group">
+                                <i class="fas fa-tag"></i>
+                                <select id="senderSubject" required>
+                                    <option value="">Subject *</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Custom Software Development">Custom Software Development</option>
+                                    <option value="Website Development">Website Development</option>
+                                    <option value="Mobile App Development">Mobile App Development</option>
+                                    <option value="Database Development">Database Development</option>
+                                    <option value="IT Consultation">IT Consultation</option>
+                                    <option value="Support & Maintenance">Support & Maintenance</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="contact-textarea-group">
+                            <i class="fas fa-comment-dots"></i>
+                            <textarea id="senderMessage" rows="7" placeholder="Your Message *" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-send-message">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+
+                        <p class="privacy-note">
+                            <i class="fas fa-lock"></i> We respect your privacy. Your information will not be shared with third parties.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- RIGHT: Our Location -->
+                <div class="contact-location-box">
+                    <h3>Our Location</h3>
+                    <p class="box-subtitle">Visit our office or find us on the map below.</p>
+
+                    <div class="contact-map" id="contactMap">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=34.532998,69.165407&z=15&output=embed"
+                            width="100%" 
+                            height="100%" 
+                            style="border: 0; display: block;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <!-- Quick Response Box -->
+                    <div class="quick-response-box">
+                        <div class="qr-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div>
+                            <h4>Need a Quick Response?</h4>
+                            <p>Contact us directly via WhatsApp for faster communication.</p>
+                            <a href="https://wa.me/93784644558" target="_blank" class="btn-whatsapp-chat">
+                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <img src="assets/images/logo.png" alt="Akbari Solution Logo">
+                <p>Providing modern software solutions to help your business grow and work smarter.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Product Categories</h4>
+                <ul>
+                    <li><a href="products.html?filter=Databases">Databases</a></li>
+                    <li><a href="products.html?filter=Software">Software Systems</a></li>
+                    <li><a href="products.html?filter=Web%20Apps">Web Applications</a></li>
+                    <li><a href="products.html?filter=Mobile%20Apps">Mobile Apps</a></li>
+                    <li><a href="products.html?filter=Business%20Tools">Business Tools</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col contact-col">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Kabul, Afghanistan</span></li>
+                    <li><i class="fas fa-phone-alt"></i> <span id="footerPhone">+93 782 311 365</span></li>
+                    <li><i class="fas fa-envelope"></i> <span id="footerEmail">info@akbarisolution.com</span></li>
+                    <li><i class="fas fa-clock"></i> <span id="footerHours">Mon - Sat, 8:00 AM - 6:00 PM</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+                <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/global-settings.js?v=3"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

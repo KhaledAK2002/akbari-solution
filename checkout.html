@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page-name="Checkout">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Akbari Solution Logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">1</span></a>
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CHECKOUT PAGE -->
+    <section class="checkout-page">
+        <div class="container">
+            <div class="checkout-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="products.html">Products</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumbProduct">Product</span>
+                <i class="fas fa-chevron-right"></i>
+                <span>Checkout</span>
+            </div>
+
+            <div class="checkout-header">
+                <i class="fas fa-shopping-cart"></i>
+                <div>
+                    <h1>Complete Your Order</h1>
+                    <p>Fill in your information and choose a payment method to receive the product.</p>
+                </div>
+            </div>
+
+            <div class="checkout-grid">
+                <div class="checkout-left">
+                    <div class="checkout-product-card">
+                        <div class="checkout-product-image">
+                            <img src="" alt="Product" id="checkoutProductImage">
+                        </div>
+                        <div class="checkout-product-info">
+                            <span class="premium-badge">Premium</span>
+                            <h3 id="checkoutProductName">Product Name</h3>
+                            <p id="checkoutProductShortDesc">Short description...</p>
+                            <ul class="checkout-product-features" id="checkoutProductFeatures"></ul>
+                        </div>
+                        <div class="checkout-product-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-file-archive"></i>
+                                <div>
+                                    <span>File Size</span>
+                                    <strong id="specFileSize">N/A</strong>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <span>Version</span>
+                                    <strong id="specVersion">N/A</strong>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-certificate"></i>
+                                <div>
+                                    <span>License</span>
+                                    <strong id="specLicense">N/A</strong>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-desktop"></i>
+                                <div>
+                                    <span>Compatible With</span>
+                                    <strong id="specCompatible">N/A</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-form-card">
+                        <div class="form-card-header">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h3>Your Information</h3>
+                                <p>Please fill in your information.</p>
+                            </div>
+                        </div>
+
+                        <form id="checkoutForm">
+                            <div class="checkout-form-row">
+                                <div class="checkout-form-group">
+                                    <label>Full Name <span class="required">*</span></label>
+                                    <input type="text" id="fullName" placeholder="e.g. Ahmad Khan" required>
+                                </div>
+                                <div class="checkout-form-group">
+                                    <label>Email Address <span class="required">*</span></label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-envelope"></i>
+                                        <input type="email" id="email" placeholder="example@email.com" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout-form-row">
+                                <div class="checkout-form-group">
+                                    <label>Phone Number <span class="required">*</span></label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-phone"></i>
+                                        <input type="text" id="phone" placeholder="e.g. 07X XXX XXXX" required>
+                                    </div>
+                                </div>
+                                <div class="checkout-form-group">
+                                    <label>City / Location <span class="required">*</span></label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <input type="text" id="city" placeholder="e.g. Kabul" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout-form-group">
+                                <label>Additional Message (Optional)</label>
+                                <textarea id="message" rows="4" placeholder="Any question..."></textarea>
+                            </div>
+                        </form>
+
+                        <div class="how-it-works-box">
+                            <div class="how-header">
+                                <i class="fas fa-envelope"></i>
+                                <h4>How it works?</h4>
+                            </div>
+                            <ol>
+                                <li><span>1</span> Fill in your information and choose a payment method.</li>
+                                <li><span>2</span> Make the payment using the details provided.</li>
+                                <li><span>3</span> After payment, we will verify it and send the product to your email.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-right">
+                    <div class="order-summary-card">
+                        <div class="card-header-icon">
+                            <i class="fas fa-file-invoice"></i>
+                            <h3>Order Summary</h3>
+                        </div>
+                        <ul class="order-summary-list">
+                            <li><span>Product:</span> <strong id="summaryProductName">-</strong></li>
+                            <li><span>License:</span> <strong id="summaryLicense">Lifetime Use</strong></li>
+                            <li><span>Price:</span> <strong id="summaryPrice">$0</strong></li>
+                        </ul>
+                        <div class="order-summary-total">
+                            <span>Total Amount:</span>
+                            <strong id="summaryTotal">$0</strong>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods-card">
+                        <div class="card-header-icon">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>Select Payment Method</h3>
+                        </div>
+                        <p class="payment-hint">Choose a payment method.</p>
+
+                        <div class="payment-group">
+                            <div class="payment-group-header">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>For Afghanistan</h4>
+                                <span class="flag-icon">🇦🇫</span>
+                            </div>
+
+                            <label class="payment-option" style="display: none;">
+                                <input type="radio" name="paymentMethod" value="microfinance" disabled>
+                                <div class="payment-option-content">
+                                    <div class="payment-icon">
+                                        <img src="assets/images/bank-microfinance.png" alt="MicroFinance">
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>The First MicroFinanceBank</h4>
+                                        <p>Bank Transfer</p>
+                                    </div>
+                                    <div class="payment-check"><i class="fas fa-check-circle"></i></div>
+                                </div>
+                            </label>
+
+                            <label class="payment-option" style="display: none;">
+                                <input type="radio" name="paymentMethod" value="hesabpay" disabled>
+                                <div class="payment-option-content">
+                                    <div class="payment-icon">
+                                        <img src="assets/images/bank-hesabpay.png" alt="HesabPay">
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>HesabPay</h4>
+                                        <p>Mobile Payment</p>
+                                    </div>
+                                    <div class="payment-check"><i class="fas fa-check-circle"></i></div>
+                                </div>
+                            </label>
+
+                            <label class="payment-option" style="display: none;">
+                                <input type="radio" name="paymentMethod" value="mymoney" disabled>
+                                <div class="payment-option-content">
+                                    <div class="payment-icon">
+                                        <img src="assets/images/bank-mymoney.png" alt="My Money">
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>My Money</h4>
+                                        <p>Mobile Payment</p>
+                                    </div>
+                                    <div class="payment-check"><i class="fas fa-check-circle"></i></div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="payment-group">
+                            <div class="payment-group-header">
+                                <i class="fas fa-globe"></i>
+                                <h4>For International Customers</h4>
+                            </div>
+
+                            <label class="payment-option" style="display: none;">
+                                <input type="radio" name="paymentMethod" value="westernunion" disabled>
+                                <div class="payment-option-content">
+                                    <div class="payment-icon">
+                                        <img src="assets/images/bank-westernunion.png" alt="Western Union">
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>Western Union</h4>
+                                        <p>International Money Transfer</p>
+                                    </div>
+                                    <div class="payment-check"><i class="fas fa-check-circle"></i></div>
+                                </div>
+                            </label>
+
+                            <label class="payment-option" style="display: none;">
+                                <input type="radio" name="paymentMethod" value="moneygram" disabled>
+                                <div class="payment-option-content">
+                                    <div class="payment-icon">
+                                        <img src="assets/images/bank-moneygram.png" alt="MoneyGram">
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>MoneyGram</h4>
+                                        <p>International Money Transfer</p>
+                                    </div>
+                                    <div class="payment-check"><i class="fas fa-check-circle"></i></div>
+                                </div>
+                            </label>
+
+                            <label class="payment-option" style="display: none;">
+                                <input type="radio" name="paymentMethod" value="paypal" disabled>
+                                <div class="payment-option-content">
+                                    <div class="payment-icon">
+                                        <img src="assets/images/bank-paypal.png" alt="PayPal">
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>PayPal</h4>
+                                        <p>International Online Payment</p>
+                                    </div>
+                                    <div class="payment-check"><i class="fas fa-check-circle"></i></div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="security-note">
+                            <i class="fas fa-lock"></i>
+                            <span>Your information is secure.</span>
+                        </div>
+
+                        <button type="button" class="btn-submit-order" id="submitOrderBtn">
+                            <i class="fas fa-paper-plane"></i> Submit Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <img src="assets/images/logo.png" alt="Akbari Solution">
+                <p>Innovative Solutions for a Better Future</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Kabul, Afghanistan</li>
+                    <li><i class="fas fa-envelope"></i> khalednaseri786@gmail.com</li>
+                    <li><i class="fas fa-phone-alt"></i> +93 70 450 70 60</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+                <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/global-settings.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

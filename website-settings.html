@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Settings - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html" class="active">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search in dashboard...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User">
+                    <div class="user-info">
+                        <h4>Mohammad Khalid</h4>
+                        <span>Super Administrator</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            
+            <div class="ws-page-header">
+                <div>
+                    <span class="breadcrumb-text">
+                        <i class="fas fa-home"></i> Dashboard 
+                        <i class="fas fa-chevron-right"></i> <span>Website Settings</span>
+                    </span>
+                    <h1>Website Settings</h1>
+                    <p>Manage your website settings, users, permissions and system configurations from one place.</p>
+                </div>
+                <a href="index.html" target="_blank" class="btn-view-website">
+                    <i class="fas fa-external-link-alt"></i> View Website
+                </a>
+            </div>
+
+            <div class="ws-tabs-nav">
+                <button class="ws-tab active" data-tab="general"><i class="fas fa-cog"></i> General Settings</button>
+                <button class="ws-tab" data-tab="appearance"><i class="fas fa-palette"></i> Appearance</button>
+                <button class="ws-tab" data-tab="contact"><i class="fas fa-phone-alt"></i> Contact & Social</button>
+                <button class="ws-tab" data-tab="ecommerce"><i class="fas fa-shopping-cart"></i> E-commerce</button>
+                <button class="ws-tab" data-tab="users"><i class="fas fa-users"></i> Users & Permissions</button>
+                <button class="ws-tab" data-tab="system"><i class="fas fa-tools"></i> System & Maintenance</button>
+            </div>
+
+            <!-- TAB 1: GENERAL SETTINGS -->
+            <div class="ws-tab-content active" id="tab-general">
+                <div class="ws-grid">
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-cog"></i>
+                            <div>
+                                <h3>General Settings</h3>
+                                <p class="section-sub">Basic website configuration and preferences.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Site Title <span class="required">*</span></label>
+                            <input type="text" class="form-input" id="siteTitle" value="Akbari Solution">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Site Tagline</label>
+                            <input type="text" class="form-input" id="siteTagline" value="Software & Technology">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Site Description</label>
+                            <textarea class="form-textarea" id="siteDescription" rows="3">We provide ready-to-use databases, software systems and web applications to help individuals, small businesses and organizations work smarter and faster.</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Website URL</label>
+                            <input type="url" class="form-input" id="siteUrl" value="https://akbarisolution.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Default Language</label>
+                            <select class="form-select" id="siteLanguage">
+                                <option value="English" selected>English</option>
+                                <option value="Dari">Dari</option>
+                                <option value="Pashto">Pashto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Timezone</label>
+                            <select class="form-select" id="siteTimezone">
+                                <option value="Asia/Kabul" selected>Asia/Kabul (GMT +4:30)</option>
+                                <option value="Asia/Dubai">Asia/Dubai (GMT +4:00)</option>
+                                <option value="UTC">UTC</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Date Format</label>
+                            <select class="form-select" id="siteDateFormat">
+                                <option value="F j, Y" selected>September 19, 2026 (F j, Y)</option>
+                                <option value="Y-m-d">2026-09-19 (Y-m-d)</option>
+                                <option value="d/m/Y">19/09/2026 (d/m/Y)</option>
+                                <option value="m/d/Y">09/19/2026 (m/d/Y)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ws-right-col">
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-image"></i>
+                                <div>
+                                    <h3>Logo & Favicon</h3>
+                                    <p class="section-sub">Upload your website logo and favicon.</p>
+                                </div>
+                            </div>
+
+                            <div class="ws-two-col">
+                                <div class="upload-box">
+                                    <label class="upload-label">Website Logo</label>
+                                    <div class="upload-preview" id="logoPreview">
+                                        <img src="assets/images/logo.png" alt="Logo">
+                                    </div>
+                                    <div class="upload-actions">
+                                        <label class="btn-upload-small">
+                                            <i class="fas fa-upload"></i> Change Logo
+                                            <input type="file" id="logoInput" accept="image/*" hidden>
+                                        </label>
+                                        <button type="button" class="btn-remove-small" onclick="removeImage('logo')">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </button>
+                                    </div>
+                                    <p class="upload-hint">Recommended: 300 × 100 (PNG)</p>
+                                </div>
+
+                                <div class="upload-box">
+                                    <label class="upload-label">Favicon</label>
+                                    <div class="upload-preview favicon-preview" id="faviconPreview">
+                                        <img src="assets/images/logo.png" alt="Favicon">
+                                    </div>
+                                    <div class="upload-actions">
+                                        <label class="btn-upload-small">
+                                            <i class="fas fa-upload"></i> Change Favicon
+                                            <input type="file" id="faviconInput" accept="image/*" hidden>
+                                        </label>
+                                        <button type="button" class="btn-remove-small" onclick="removeImage('favicon')">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </button>
+                                    </div>
+                                    <p class="upload-hint">Recommended: 32 × 32 (ICO, PNG)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-search"></i>
+                                <div>
+                                    <h3>SEO Meta (Optional)</h3>
+                                    <p class="section-sub">These settings help improve your website's visibility on search engines.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Meta Title</label>
+                                <input type="text" class="form-input" id="metaTitle" value="Akbari Solution - Software & Technology">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Meta Keywords</label>
+                                <input type="text" class="form-input" id="metaKeywords" value="software, databases, web applications, business tools">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Meta Description</label>
+                                <textarea class="form-textarea" id="metaDescription" rows="3">Akbari Solution provides ready-to-use software systems, databases and web applications for businesses and individuals.</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ws-actions">
+                    <button class="btn-save-settings" onclick="saveGeneralSettings()">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <button class="btn-reset-settings" onclick="resetGeneralSettings()">
+                        <i class="fas fa-sync-alt"></i> Reset to Default
+                    </button>
+                </div>
+            </div>
+            <!-- TAB 2: APPEARANCE -->
+            <div class="ws-tab-content" id="tab-appearance">
+                <div class="ws-grid">
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-palette"></i>
+                            <div>
+                                <h3>Appearance Settings</h3>
+                                <p class="section-sub">Customize the look and feel of your website.</p>
+                            </div>
+                        </div>
+
+                        <div class="ws-three-col">
+                            <div class="form-group">
+                                <label class="form-label">Primary Color <span class="required">*</span></label>
+                                <div class="color-input-group">
+                                    <input type="color" id="primaryColor" value="#0DA4FF">
+                                    <input type="text" class="form-input color-text" id="primaryColorText" value="#0DA4FF">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Secondary Color <span class="required">*</span></label>
+                                <div class="color-input-group">
+                                    <input type="color" id="secondaryColor" value="#6366F1">
+                                    <input type="text" class="form-input color-text" id="secondaryColorText" value="#6366F1">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Accent Color</label>
+                                <div class="color-input-group">
+                                    <input type="color" id="accentColor" value="#10B981">
+                                    <input type="text" class="form-input color-text" id="accentColorText" value="#10B981">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Default Theme Mode</label>
+                                <div class="theme-mode-group">
+                                    <button type="button" class="theme-btn" data-theme="light">
+                                        <i class="fas fa-sun"></i> Light
+                                    </button>
+                                    <button type="button" class="theme-btn active" data-theme="dark">
+                                        <i class="fas fa-moon"></i> Dark
+                                    </button>
+                                    <button type="button" class="theme-btn" data-theme="system">
+                                        <i class="fas fa-desktop"></i> System
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Font Family</label>
+                                <select class="form-select" id="fontFamily">
+                                    <optgroup label="🎯 Modern & Clean">
+                                        <option value="Inter" selected>Inter (Default)</option>
+                                        <option value="Poppins">Poppins</option>
+                                        <option value="Roboto">Roboto</option>
+                                        <option value="Open Sans">Open Sans</option>
+                                        <option value="Montserrat">Montserrat</option>
+                                        <option value="Lato">Lato</option>
+                                        <option value="Nunito">Nunito</option>
+                                    </optgroup>
+                                    <optgroup label="🎨 Display & Stylish">
+                                        <option value="Raleway">Raleway</option>
+                                        <option value="Playfair Display">Playfair Display</option>
+                                        <option value="Merriweather">Merriweather</option>
+                                        <option value="Source Sans Pro">Source Sans Pro</option>
+                                        <option value="Ubuntu">Ubuntu</option>
+                                        <option value="Work Sans">Work Sans</option>
+                                    </optgroup>
+                                    <optgroup label="🌍 RTL (Arabic/Pashto/Dari)">
+                                        <option value="Cairo">Cairo (Arabic)</option>
+                                        <option value="Tajawal">Tajawal (Arabic)</option>
+                                        <option value="Almarai">Almarai (Arabic)</option>
+                                        <option value="Amiri">Amiri (Arabic)</option>
+                                        <option value="Noto Naskh Arabic">Noto Naskh Arabic</option>
+                                    </optgroup>
+                                    <optgroup label="💻 Monospace (Code)">
+                                        <option value="JetBrains Mono">JetBrains Mono</option>
+                                        <option value="Fira Code">Fira Code</option>
+                                        <option value="Source Code Pro">Source Code Pro</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Header Style</label>
+                                <select class="form-select" id="headerStyle">
+                                    <option value="Modern (Transparent)" selected>Modern (Transparent)</option>
+                                    <option value="Solid">Solid</option>
+                                    <option value="Minimal">Minimal</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Button Style</label>
+                                <select class="form-select" id="buttonStyle">
+                                    <option value="Rounded" selected>Rounded</option>
+                                    <option value="Square">Square</option>
+                                    <option value="Pill">Pill</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="code-editor-header">
+                                <label class="form-label"><i class="fas fa-code"></i> Custom CSS</label>
+                                <small>Add custom CSS to change the design (optional).</small>
+                            </div>
+                            <textarea class="form-textarea code-textarea" id="customCSS" rows="5" placeholder="/* Custom CSS */">/* Custom CSS */
+.hero-title {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="code-editor-header">
+                                <label class="form-label"><i class="fab fa-js"></i> Custom JavaScript</label>
+                                <small>Add custom JavaScript (e.g. Google Analytics).</small>
+                            </div>
+                            <textarea class="form-textarea code-textarea" id="customJS" rows="5" placeholder="// Custom JavaScript">// Custom JavaScript
+window.addEventListener('load', function() {
+    console.log('Akbari Solution');
+});</textarea>
+                        </div>
+                    </div>
+
+                    <div class="ws-right-col">
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-eye"></i>
+                                <div>
+                                    <h3>Live Preview</h3>
+                                    <p class="section-sub">See how your appearance settings will look on your website.</p>
+                                </div>
+                            </div>
+
+                            <div class="appearance-preview">
+                                <div class="preview-header">
+                                    <div class="preview-logo">Akbari Solution</div>
+                                    <div class="preview-nav">
+                                        <span>Home</span>
+                                        <span>Products</span>
+                                        <span>Services</span>
+                                        <span>About</span>
+                                        <span>Contact</span>
+                                    </div>
+                                </div>
+                                <div class="preview-hero">
+                                    <span class="preview-badge">Innovative Solutions for a Better Future</span>
+                                    <h4>Premium Databases, <span style="color:#0DA4FF;">Software & Applications</span> for a Smarter Tomorrow</h4>
+                                    <p>We design and provide high-quality ready-to-use databases...</p>
+                                    <div class="preview-buttons">
+                                        <span class="preview-btn-primary">Browse Products</span>
+                                        <span class="preview-btn-outline">Learn More</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="color-palette-box">
+                                <h4><i class="fas fa-palette"></i> Color Palette Preview</h4>
+                                <p class="section-sub">This is how your color scheme looks across the website elements.</p>
+                                
+                                <div class="color-palette-grid">
+                                    <div class="palette-item">
+                                        <div class="palette-color" style="background:#0DA4FF;"></div>
+                                        <span>Primary</span>
+                                        <small id="palettePrimary">#0DA4FF</small>
+                                    </div>
+                                    <div class="palette-item">
+                                        <div class="palette-color" style="background:#6366F1;"></div>
+                                        <span>Secondary</span>
+                                        <small id="paletteSecondary">#6366F1</small>
+                                    </div>
+                                    <div class="palette-item">
+                                        <div class="palette-color" style="background:#10B981;"></div>
+                                        <span>Accent</span>
+                                        <small id="paletteAccent">#10B981</small>
+                                    </div>
+                                    <div class="palette-item">
+                                        <div class="palette-color" style="background:#0B1220;"></div>
+                                        <span>Background</span>
+                                        <small>#0B1220</small>
+                                    </div>
+                                    <div class="palette-item">
+                                        <div class="palette-color" style="background:#111827;"></div>
+                                        <span>Card</span>
+                                        <small>#111827</small>
+                                    </div>
+                                    <div class="palette-item">
+                                        <div class="palette-color" style="background:#F9FAFB;"></div>
+                                        <span>Text</span>
+                                        <small>#F9FAFB</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="typography-box">
+                                <h4><i class="fas fa-font"></i> Typography Preview</h4>
+                                <p class="section-sub">Preview how your selected font looks. <span id="fontName">Font: Inter</span></p>
+                                <div class="typography-preview">
+                                    <div class="typography-icon">A</div>
+                                    <div>
+                                        <h3>The quick brown fox jumps over the lazy dog</h3>
+                                        <p>0123456789 | !@#$%^&*()</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ws-actions">
+                    <button class="btn-save-settings" onclick="saveAppearanceSettings()">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <button class="btn-reset-settings" onclick="resetAppearanceSettings()">
+                        <i class="fas fa-sync-alt"></i> Reset to Default
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 3: CONTACT & SOCIAL -->
+            <div class="ws-tab-content" id="tab-contact">
+                <div class="ws-grid">
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h3>Contact Information</h3>
+                                <p class="section-sub">Update your contact details. This information will be displayed on your website.</p>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Main Email <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" class="form-input" id="wsMainEmail" value="info@akbarisolution.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Support Email</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" class="form-input" id="wsSupportEmail" value="support@akbarisolution.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Main Phone <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="text" class="form-input" id="wsMainPhone" value="+93 70 450 70 60">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Office Phone</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="text" class="form-input" id="wsOfficePhone" value="+93 782 311 365">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">WhatsApp Number</label>
+                                <div class="input-with-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <input type="text" class="form-input" id="wsWhatsApp" value="+93 70 450 70 60">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Fax (Optional)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-fax"></i>
+                                    <input type="text" class="form-input" id="wsFax" value="+93 20 123 4567">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Address <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" class="form-input" id="wsAddress" value="Kabul, Afghanistan">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Google Maps Link</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-map"></i>
+                                    <input type="url" class="form-input" id="wsMapsLink" value="https://maps.google.com/?q=Kabul">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Working Hours</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-clock"></i>
+                                    <input type="text" class="form-input" id="wsWorkingHours" value="Sat - Thu, 8:00 AM - 6:00 PM">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Contact Form Email</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope-open"></i>
+                                    <input type="email" class="form-input" id="wsContactFormEmail" value="contact@akbarisolution.com">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ws-right-col">
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-share-alt"></i>
+                                <div>
+                                    <h3>Social Media Links</h3>
+                                    <p class="section-sub">Add your social media profiles. Leave empty if not used.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-facebook" style="color:#1877F2;"></i> Facebook</label>
+                                <input type="url" class="form-input" id="wsFacebook" value="https://facebook.com/akbarisolution">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-instagram" style="color:#E1306C;"></i> Instagram</label>
+                                <input type="url" class="form-input" id="wsInstagram" value="https://instagram.com/akbarisolution">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-linkedin" style="color:#0077B5;"></i> LinkedIn</label>
+                                <input type="url" class="form-input" id="wsLinkedIn" value="https://linkedin.com/company/akbarisolution">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-youtube" style="color:#FF0000;"></i> YouTube</label>
+                                <input type="url" class="form-input" id="wsYouTube" value="https://youtube.com/@akbarisolution">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-telegram" style="color:#0088CC;"></i> Telegram</label>
+                                <input type="url" class="form-input" id="wsTelegram" value="https://t.me/akbarisolution">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><i class="fab fa-tiktok"></i> TikTok</label>
+                                <input type="url" class="form-input" id="wsTikTok" value="https://tiktok.com/@akbarisolution">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ws-actions">
+                    <button class="btn-save-settings" onclick="saveContactSettings()">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <button class="btn-reset-settings" onclick="resetContactSettings()">
+                        <i class="fas fa-sync-alt"></i> Reset to Default
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 4: E-COMMERCE -->
+            <div class="ws-tab-content" id="tab-ecommerce">
+                <div class="ws-grid-3">
+                    
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div>
+                                <h3>Store & Currency Settings</h3>
+                                <p class="section-sub">Configure your shop currency, tax and basic store settings.</p>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Currency <span class="required">*</span></label>
+                                <select class="form-select" id="wsCurrency">
+                                    <option value="USD" selected>USD - US Dollar</option>
+                                    <option value="AFN">AFN - Afghan Afghani</option>
+                                    <option value="EUR">EUR - Euro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Currency Symbol <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="wsCurrencySymbol" value="$">
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Tax Rate (Optional)</label>
+                                <div class="input-with-suffix">
+                                    <input type="number" class="form-input" id="wsTaxRate" value="0" min="0" max="100">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Decimal Places</label>
+                                <input type="number" class="form-input" id="wsDecimalPlaces" value="2" min="0" max="4">
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Price Display Format</label>
+                                <select class="form-select" id="wsPriceFormat">
+                                    <option value="$1,234.56" selected>$1,234.56</option>
+                                    <option value="1,234.56$">1,234.56$</option>
+                                    <option value="$ 1,234.56">$ 1,234.56</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Shipping (Optional)</label>
+                                <select class="form-select" id="wsShipping">
+                                    <option value="disable" selected>Disable for now</option>
+                                    <option value="enable">Enable Shipping</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="wsEnableEcommerce" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Enable E-commerce</strong>
+                                <span>Turn on/off the shopping functionality.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-credit-card"></i>
+                            <div>
+                                <h3>Payment Methods</h3>
+                                <p class="section-sub">Enable or disable payment methods for your customers.</p>
+                            </div>
+                        </div>
+
+                        <div class="payment-methods-list">
+                            <div class="payment-item">
+                                <div class="payment-logo"><i class="fas fa-university"></i></div>
+                                <div class="payment-name">HesabPay</div>
+                                <label class="switch small">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                                <button class="btn-settings-small" onclick="window.location.href='payment-settings.html?method=hesabpay'"><i class="fas fa-cog"></i> Settings</button>
+                            </div>
+
+                            <div class="payment-item">
+                                <div class="payment-logo"><i class="fas fa-wallet"></i></div>
+                                <div class="payment-name">My Money</div>
+                                <label class="switch small">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                                <button class="btn-settings-small" onclick="window.location.href='payment-settings.html?method=mymoney'"><i class="fas fa-cog"></i> Settings</button>
+                            </div>
+
+                            <div class="payment-item">
+                                <div class="payment-logo"><i class="fas fa-university"></i></div>
+                                <div class="payment-name">Bank Transfer</div>
+                                <label class="switch small">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                                <button class="btn-settings-small" onclick="window.location.href='payment-settings.html?method=microfinance'"><i class="fas fa-cog"></i> Settings</button>
+                            </div>
+
+                            <div class="payment-item">
+                                <div class="payment-logo"><i class="fas fa-globe"></i></div>
+                                <div class="payment-name">Western Union</div>
+                                <label class="switch small">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                                <button class="btn-settings-small" onclick="window.location.href='payment-settings.html?method=westernunion'"><i class="fas fa-cog"></i> Settings</button>
+                            </div>
+
+                            <div class="payment-item">
+                                <div class="payment-logo"><i class="fas fa-money-bill"></i></div>
+                                <div class="payment-name">MoneyGram</div>
+                                <label class="switch small">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                                <button class="btn-settings-small" onclick="window.location.href='payment-settings.html?method=moneygram'"><i class="fas fa-cog"></i> Settings</button>
+                            </div>
+
+                            <div class="payment-item">
+                                <div class="payment-logo"><i class="fab fa-paypal"></i></div>
+                                <div class="payment-name">PayPal</div>
+                                <label class="switch small">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                                <button class="btn-settings-small" onclick="window.location.href='payment-settings.html?method=paypal'"><i class="fas fa-cog"></i> Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ws-grid-3" style="margin-top: 25px;">
+                    
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <h3>Mobile Payment Details</h3>
+                                <p class="section-sub">Add your mobile payment numbers.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">HesabPay Number <span class="required">*</span></label>
+                            <div class="copy-input">
+                                <input type="text" class="form-input" id="wsHesabPayNumber" value="+93 70 450 70 60">
+                                <button class="btn-copy" onclick="copyValue('wsHesabPayNumber')"><i class="far fa-copy"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">My Money Number <span class="required">*</span></label>
+                            <div class="copy-input">
+                                <input type="text" class="form-input" id="wsMyMoneyNumber" value="+93 78 231 13 65">
+                                <button class="btn-copy" onclick="copyValue('wsMyMoneyNumber')"><i class="far fa-copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div>
+                                <h3>Order Settings</h3>
+                                <p class="section-sub">Configure order related settings.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Order Notification Email <span class="required">*</span></label>
+                            <input type="email" class="form-input" id="wsOrderEmail" value="orders@akbarisolution.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Admin Notification Email</label>
+                            <input type="email" class="form-input" id="wsAdminEmail" value="admin@akbarisolution.com">
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="wsOrderConfirmation" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Send Order Confirmation to Customer</strong>
+                                <span>Automatically send email to customer after order.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-cog"></i>
+                            <div>
+                                <h3>Additional Settings</h3>
+                                <p class="section-sub">More e-commerce options.</p>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="wsStockMgmt" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Enable Stock Management</strong>
+                                <span>Track product stock automatically.</span>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="wsGuestCheckout" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Allow Guest Checkout</strong>
+                                <span>Allow customers to place orders without account.</span>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="wsCoupons" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Enable Coupons & Discounts</strong>
+                                <span>Allow discount codes.</span>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="wsInvoice" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Enable Invoice Generation</strong>
+                                <span>Generate PDF invoice for each order.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ws-actions">
+                    <button class="btn-save-settings" onclick="saveEcommerceSettings()">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <button class="btn-reset-settings" onclick="resetEcommerceSettings()">
+                        <i class="fas fa-sync-alt"></i> Reset to Default
+                    </button>
+                </div>
+            </div>
+            
+            <!-- TAB 5: USERS & PERMISSIONS -->
+            <div class="ws-tab-content" id="tab-users">
+                
+                <div class="form-section">
+                    <div class="form-section-header with-action">
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h3>Users Management</h3>
+                                <p class="section-sub">Manage all system users, their roles and permissions.</p>
+                            </div>
+                        </div>
+                        <button class="btn-add-user" onclick="openUserForm()">
+                            <i class="fas fa-plus"></i> Add New User
+                        </button>
+                    </div>
+
+                    <!-- Users Filter Bar -->
+                    <div class="users-filter-bar">
+                        <div class="users-filter-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="userSearchInput" placeholder="Search by name or email...">
+                        </div>
+                        <select class="users-filter-select" id="userRoleFilter">
+                            <option value="">All Roles</option>
+                            <option value="Super Administrator">Super Administrator</option>
+                            <option value="Administrator">Administrator</option>
+                            <option value="Employee">Employee</option>
+                        </select>
+                        <select class="users-filter-select" id="userStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <table class="ws-users-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Avatar</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Last Login</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- کاربران توسط JS اضافه میشن -->
+                        </tbody>
+                    </table>
+
+                    <!-- Users Pagination -->
+                    <div class="table-footer" id="usersTableFooter">
+                        <div class="show-entries">
+                            <span id="usersShowingText">Showing 0 to 0 of 0 users</span>
+                        </div>
+                        <div class="pagination" id="usersPagination"></div>
+                    </div>
+                </div>
+
+                <div class="ws-permissions-grid">
+                    
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-key"></i>
+                            <div>
+                                <h3>Permissions Manager</h3>
+                                <p class="section-sub">Set permissions for each role or individual user. Determine which sections and actions they can access.</p>
+                            </div>
+                        </div>
+
+                        <div class="perm-tabs">
+                            <button class="perm-tab active" data-perm="role">Role Permissions</button>
+                            <button class="perm-tab" data-perm="user">User Permissions</button>
+                        </div>
+
+                        <div class="perm-select-row" id="roleSelectRow">
+                            <label>Select Role</label>
+                            <select class="form-select" id="permRoleSelect" onchange="loadPermissions()">
+                                <option value="Super Administrator">Super Administrator</option>
+                                <option value="Administrator">Administrator</option>
+                                <option value="Employee" selected>Employee</option>
+                            </select>
+                            <button type="button" class="btn-save-perm" onclick="savePermissionsBtn()">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
+
+                        <div class="perm-select-row" id="userSelectRow" style="display: none;">
+                            <label>Select User</label>
+                            <select class="form-select" id="permUserSelect" onchange="loadPermissions()">
+                                <option value="">-- Select a User --</option>
+                            </select>
+                            <button type="button" class="btn-copy-perm" onclick="copyPermissionsFromRole()">
+                                <i class="fas fa-copy"></i> Copy from Role
+                            </button>
+                            <button type="button" class="btn-save-perm" onclick="savePermissionsBtn()">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
+
+                        <table class="perm-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Dashboard Section</th>
+                                    <th>View</th>
+                                    <th>Add</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="permMatrixBody">
+                                <!-- دسترسی‌ها توسط JS اضافه میشن -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="form-section" id="userFormBox" style="display: none;">
+                        <div class="form-section-header">
+                            <i class="fas fa-user-plus"></i>
+                            <div>
+                                <h3 id="userFormTitle">Add / Edit User</h3>
+                                <p class="section-sub">Create a new user or edit existing user.</p>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Full Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="userFullName" placeholder="Enter full name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address <span class="required">*</span></label>
+                                <input type="email" class="form-input" id="userEmail" placeholder="Enter email address">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Password <span class="required">*</span></label>
+                            <div class="password-input-wrapper">
+                                <input type="password" class="form-input" id="userPassword" placeholder="Enter password">
+                                <button type="button" class="toggle-pw" id="userPasswordToggle" onclick="toggleUserPassword()">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">Role <span class="required">*</span></label>
+                                <select class="form-select" id="userRole">
+                                    <option value="Employee" selected>Employee</option>
+                                    <option value="Administrator">Administrator</option>
+                                    <option value="Super Administrator">Super Administrator</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Status</label>
+                                <select class="form-select" id="userStatus">
+                                    <option value="Active" selected>Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Profile Image</label>
+                            <div class="user-image-upload">
+                                <div class="user-image-preview">
+                                    <img src="assets/images/avatar-ahmad.png" id="userImagePreview" alt="User">
+                                </div>
+                                <div class="user-image-actions">
+                                    <label class="btn-upload-small">
+                                        <i class="fas fa-upload"></i> Upload Image
+                                        <input type="file" id="userImageInput" accept="image/*" hidden>
+                                    </label>
+                                    <p class="upload-hint">JPG, PNG (Max 2MB)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn-cancel" onclick="closeUserForm()">Cancel</button>
+                            <button class="btn-save" onclick="saveUser()">
+                                <i class="fas fa-save"></i> Save User
+                            </button>
+                        </div>
+
+                        <div class="form-section-header" style="margin-top: 25px;">
+                            <i class="fas fa-cog"></i>
+                            <div>
+                                <h3>Additional User Options</h3>
+                                <p class="section-sub">Manage user security and access options.</p>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="optForcePassword">
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Force Password Change</strong>
+                                <span>User must change password on next login.</span>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="opt2FA">
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Two-Factor Authentication</strong>
+                                <span>Enable 2FA for this user.</span>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="optLoginNotif" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Login Notifications</strong>
+                                <span>Send email on new login.</span>
+                            </div>
+                        </div>
+
+                        <div class="delete-user-box" id="deleteUserBox" style="display: none;">
+                            <button class="btn-delete-user" onclick="deleteUser()">
+                                <i class="fas fa-trash"></i> Delete User
+                            </button>
+                            <span>This action cannot be undone.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: SYSTEM & MAINTENANCE -->
+            <div class="ws-tab-content" id="tab-system">
+                
+                <div class="ws-grid-4">
+                    
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-database"></i>
+                            <div>
+                                <h3>Backup & Restore</h3>
+                                <p class="section-sub">Create a backup of your website data or restore from a previous backup.</p>
+                            </div>
+                        </div>
+
+                        <div class="backup-actions">
+                            <button class="btn-backup" onclick="createBackup()">
+                                <i class="fas fa-download"></i> Backup Now
+                            </button>
+                            <button class="btn-restore" onclick="restoreBackup()">
+                                <i class="fas fa-sync-alt"></i> Restore Backup
+                            </button>
+                        </div>
+
+                        <div class="backup-list-header">
+                            <h4>Recent Backups</h4>
+                            <a href="#" class="view-all-link" onclick="openBackupHistoryModal(); return false;">View All</a>
+                        </div>
+
+                        <div class="backup-list">
+                            <div class="backup-item">
+                                <div>
+                                    <strong>backup_2026-09-19_1430.sql</strong>
+                                    <span>Sep 19, 2026 • 14:30</span>
+                                </div>
+                                <div class="backup-item-actions">
+                                    <span class="status-badge success">Success</span>
+                                    <button class="btn-icon"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            <div class="backup-item">
+                                <div>
+                                    <strong>backup_2026-09-12_1015.sql</strong>
+                                    <span>Sep 12, 2026 • 10:15</span>
+                                </div>
+                                <div class="backup-item-actions">
+                                    <span class="status-badge success">Success</span>
+                                    <button class="btn-icon"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <h3>System Information</h3>
+                                <p class="section-sub">Overview of your system and server information.</p>
+                            </div>
+                        </div>
+
+                        <ul class="system-info-list">
+                            <li><span>Website Version:</span> <strong>v1.0.0</strong></li>
+                            <li><span>PHP Version:</span> <strong>8.2.12</strong></li>
+                            <li><span>Database:</span> <strong>MySQL 8.0.34</strong></li>
+                            <li><span>Server OS:</span> <strong>Windows 11</strong></li>
+                            <li><span>Total Users:</span> <strong id="sysTotalUsers">4</strong></li>
+                            <li><span>Total Products:</span> <strong id="sysTotalProducts">28</strong></li>
+                            <li><span>Storage Used:</span> <strong>250 MB / 5 GB</strong></li>
+                        </ul>
+
+                        <div class="storage-mini-bar">
+                            <div class="storage-mini-fill" style="width: 5%;"></div>
+                        </div>
+                        <p class="storage-mini-label">5%</p>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-tools"></i>
+                            <div>
+                                <h3>Maintenance Mode</h3>
+                                <p class="section-sub">Put your website in maintenance mode temporarily.</p>
+                            </div>
+                        </div>
+
+                        <div class="toggle-row">
+                            <label class="switch">
+                                <input type="checkbox" id="wsMaintenanceMode">
+                                <span class="slider round"></span>
+                            </label>
+                            <div class="toggle-text">
+                                <strong>Enable Maintenance Mode</strong>
+                            </div>
+                        </div>
+
+                        <p class="maintenance-note">Your website is currently live.</p>
+
+                        <div class="form-group">
+                            <label class="form-label">Maintenance Message</label>
+                            <textarea class="form-textarea" id="wsMaintenanceMessage" rows="3">We are currently performing scheduled maintenance. Please check back soon.</textarea>
+                        </div>
+
+                        <button class="btn-save-settings small" onclick="saveMaintenanceSettings()">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-broom"></i>
+                            <div>
+                                <h3>Clear Cache</h3>
+                                <p class="section-sub">Clear website cache to improve performance.</p>
+                            </div>
+                        </div>
+
+                        <button class="btn-clear-cache" onclick="clearCache()">
+                            <i class="fas fa-trash"></i> Clear All Cache
+                        </button>
+
+                        <div class="cache-success-box">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Cache cleared successfully!</strong>
+                                <span>Last cleared: Sep 19, 2026 • 02:35 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ws-grid-4" style="margin-top: 25px;">
+                    
+                    <div class="form-section">
+                        <div class="form-section-header with-link">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <i class="fas fa-history"></i>
+                                <div>
+                                    <h3>Activity Log</h3>
+                                    <p class="section-sub">Track all important activities and changes.</p>
+                                </div>
+                            </div>
+                            <a href="#" class="view-all-link" onclick="openActivityLogModal(); return false;">View All</a>
+                        </div>
+
+                        <ul class="activity-list">
+                            <li>
+                                <img src="assets/images/avatar-ahmad.png" alt="User">
+                                <div>
+                                    <strong>Mohammad Khalid</strong>
+                                    <span>Updated Home Page</span>
+                                </div>
+                                <small>Sep 19, 2026 • 14:28</small>
+                            </li>
+                            <li>
+                                <img src="assets/images/avatar-ahmad.png" alt="User">
+                                <div>
+                                    <strong>Admin User</strong>
+                                    <span>Added New Product</span>
+                                </div>
+                                <small>Sep 18, 2026 • 11:12</small>
+                            </li>
+                            <li>
+                                <img src="assets/images/avatar-zahra.png" alt="User">
+                                <div>
+                                    <strong>Ali Rahimi</strong>
+                                    <span>Login to Dashboard</span>
+                                </div>
+                                <small>Sep 17, 2026 • 09:45</small>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Settings</h3>
+                                <p class="section-sub">Configure SMTP settings for sending emails.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">SMTP Host</label>
+                            <input type="text" class="form-input" id="smtpHost" value="smtp.gmail.com">
+                        </div>
+
+                        <div class="ws-two-col">
+                            <div class="form-group">
+                                <label class="form-label">SMTP Port</label>
+                                <input type="text" class="form-input" id="smtpPort" value="587">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">SMTP Username</label>
+                                <input type="text" class="form-input" id="smtpUsername" value="noreply@akbarisolution.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">SMTP Password</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" class="form-input" id="smtpPassword" value="********">
+                                <button type="button" class="toggle-pw"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+
+                        <button class="btn-send-test" onclick="sendTestEmail()">
+                            <i class="fas fa-paper-plane"></i> Send Test Email
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-search"></i>
+                            <div>
+                                <h3>SEO Settings</h3>
+                                <p class="section-sub">Configure global SEO settings.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Default Meta Title</label>
+                            <input type="text" class="form-input" id="globalMetaTitle" value="Akbari Solution - Software & Technology">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Default Meta Description</label>
+                            <textarea class="form-textarea" id="globalMetaDesc" rows="3">We provide ready-to-use databases, software systems and web applications for businesses and individuals.</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Google Analytics ID (Optional)</label>
+                            <input type="text" class="form-input" id="googleAnalyticsId" value="G-XXXXXXXXXX">
+                        </div>
+
+                        <button class="btn-save-settings small" onclick="saveSEOSettings()">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-chart-pie"></i>
+                            <div>
+                                <h3>Storage Management</h3>
+                                <p class="section-sub">Monitor and manage storage usage.</p>
+                            </div>
+                        </div>
+
+                        <div class="storage-progress-wrapper">
+                            <div class="storage-progress">
+                                <div class="storage-progress-bar" style="width: 5%;"></div>
+                            </div>
+                            <div class="storage-progress-info">
+                                <span>250 MB / 5 GB (5%)</span>
+                            </div>
+                        </div>
+
+                        <ul class="storage-breakdown">
+                            <li><span class="dot blue"></span> <span>Images</span> <strong>120 MB</strong></li>
+                            <li><span class="dot purple"></span> <span>Products</span> <strong>80 MB</strong></li>
+                            <li><span class="dot green"></span> <span>Documents</span> <strong>30 MB</strong></li>
+                            <li><span class="dot orange"></span> <span>Others</span> <strong>20 MB</strong></li>
+                        </ul>
+
+                        <button class="btn-manage-storage" onclick="manageStorage()">
+                            <i class="fas fa-cog"></i> Manage Storage
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html" class="active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search in dashboard...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User" id="topbarAvatar">
+                    <div class="user-info">
+                        <h4 id="topbarUserName">Loading...</h4>
+                        <span id="topbarUserRole">Loading...</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            
+            <!-- Page Header -->
+            <div class="page-header">
+                <div>
+                    <span class="sub-title">DASHBOARD</span>
+                    <h1 id="welcomeTitle">Welcome Back!</h1>
+                    <p>Manage your website content easily from one place.</p>
+                </div>
+                <div class="date-box">
+                    <i class="far fa-calendar-alt"></i>
+                    <div>
+                        <h4 id="currentDate">Loading...</h4>
+                        <span id="currentTime">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <a href="orders-management.html" class="stat-card orange" style="text-decoration: none;">
+                    <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="stat-info">
+                        <h3 id="statTotalOrders">0</h3>
+                        <p>Total Orders</p>
+                        <span class="stat-link">Manage Orders <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="products-management.html" class="stat-card blue" style="text-decoration: none;">
+                    <div class="stat-icon"><i class="fas fa-box"></i></div>
+                    <div class="stat-info">
+                        <h3 id="statTotalProducts">0</h3>
+                        <p>Total Products</p>
+                        <span class="stat-link">Manage Products <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="services-management.html" class="stat-card green" style="text-decoration: none;">
+                    <div class="stat-icon"><i class="fas fa-th-large"></i></div>
+                    <div class="stat-info">
+                        <h3 id="statTotalServices">0</h3>
+                        <p>Service Items</p>
+                        <span class="stat-link">Manage Services <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="media-library.html" class="stat-card purple" style="text-decoration: none;">
+                    <div class="stat-icon"><i class="fas fa-images"></i></div>
+                    <div class="stat-info">
+                        <h3 id="statTotalMedia">0</h3>
+                        <p>Media Files</p>
+                        <span class="stat-link">Media Library <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="messages-management.html" class="stat-card orange" style="text-decoration: none;">
+                    <div class="stat-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="stat-info">
+                        <h3 id="statNewMessages">0</h3>
+                        <p>New Messages</p>
+                        <span class="stat-link">View Messages <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Recent Products & Messages -->
+            <div class="dashboard-grid-two">
+                
+                <!-- Recent Products -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-box"></i> Recent Products</h3>
+                        <a href="products-management.html">View All</a>
+                    </div>
+                    <div id="recentProductsContainer">
+                        <!-- داینامیک از JS -->
+                    </div>
+                </div>
+
+                <!-- Recent Messages -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-envelope"></i> Recent Messages</h3>
+                        <a href="messages-management.html">View All</a>
+                    </div>
+                    <div id="recentMessagesContainer">
+                        <!-- داینامیک از JS -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ========================================= -->
+    <!-- SCRIPTS -->
+    <!-- ========================================= -->
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <!-- ========================================= -->
+    <!-- DASHBOARD DYNAMIC SCRIPT (API-Based) -->
+    <!-- ========================================= -->
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        
+        const PRODUCTS_KEY = 'akbariProducts';
+        const SERVICES_KEY = 'akbariServices';
+        const MESSAGES_KEY = 'akbariMessages';
+        const USERS_KEY = 'akbariUsers';
+        const CURRENT_USER_KEY = 'akbariCurrentUserId';
+        
+        // =========================================
+        // توابع کمکی
+        // =========================================
+        function getData(key) {
+            try {
+                const data = localStorage.getItem(key);
+                return data ? JSON.parse(data) : [];
+            } catch (e) { return []; }
+        }
+        
+        function getCurrentUser() {
+            // ⚠️ اول از Auth بخون (API-Based)
+            if (window.Auth && typeof Auth.getUser === 'function') {
+                const authUser = Auth.getUser();
+                if (authUser) return authUser;
+            }
+            // Fallback: از LocalStorage
+            const users = getData(USERS_KEY);
+            const currentId = parseInt(localStorage.getItem(CURRENT_USER_KEY) || '1');
+            return users.find(u => u.id === currentId) || users[0] || null;
+        }
+        
+        // =========================================
+        // 1. اطلاعات کاربر در Topbar
+        // =========================================
+        function loadCurrentUser() {
+            const user = getCurrentUser();
+            if (!user) return;
+            
+            const nameEl = document.getElementById('topbarUserName');
+            const roleEl = document.getElementById('topbarUserRole');
+            const avatarEl = document.getElementById('topbarAvatar');
+            const welcomeEl = document.getElementById('welcomeTitle');
+            
+            if (nameEl) nameEl.textContent = user.name || 'User';
+            if (roleEl) {
+                // تبدیل role
+                let roleText = user.role || 'Administrator';
+                if (roleText === 'super_admin') roleText = 'Super Administrator';
+                if (roleText === 'admin') roleText = 'Administrator';
+                if (roleText === 'employee') roleText = 'Employee';
+                roleEl.textContent = roleText;
+            }
+            if (avatarEl && user.avatar) avatarEl.src = user.avatar;
+            if (welcomeEl) welcomeEl.textContent = `Welcome, ${user.name || 'User'}!`;
+        }
+        
+        // =========================================
+        // 2. تاریخ و ساعت
+        // =========================================
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                timeZone: 'Asia/Kabul', 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const timeOptions = { 
+                timeZone: 'Asia/Kabul', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                hour12: true 
+            };
+            
+            const dateEl = document.getElementById('currentDate');
+            const timeEl = document.getElementById('currentTime');
+            
+            if (dateEl) dateEl.textContent = new Intl.DateTimeFormat('en-US', options).format(now);
+            if (timeEl) timeEl.textContent = new Intl.DateTimeFormat('en-US', timeOptions).format(now);
+        }
+        
+        // =========================================
+        // 3. Stats Cards — از API!
+        // =========================================
+    async function updateStats() {
+        try {
+            // Products از API
+            const productsResp = await API.get('/products', { per_page: 100 });
+            const products = productsResp.success ? (productsResp.data.products || []) : [];
+            
+            // Services از API
+            const servicesResp = await API.get('/services', { per_page: 100 });
+            const services = servicesResp.success ? (servicesResp.data.services || []) : [];
+            
+            // ⚠️ Media از API (نه localStorage)
+            const mediaResp = await API.get('/media', { per_page: 100 });
+            const media = mediaResp.success ? (mediaResp.data.media || []) : [];
+            
+            // Messages از API
+            const messagesResp = await API.get('/messages/stats');
+            const msgStats = messagesResp.success ? messagesResp.data : { total: 0, unread: 0 };
+            const unreadMessages = msgStats.unread || 0;
+            
+            // Orders از API
+            const ordersResp = await API.get('/orders/stats');
+            const orderStats = ordersResp.success ? ordersResp.data : { total: 0 };
+            const totalOrders = orderStats.total || 0;
+            
+            // آپدیت UI
+            const statOrders = document.getElementById('statTotalOrders');
+            const statProducts = document.getElementById('statTotalProducts');
+            const statServices = document.getElementById('statTotalServices');
+            const statMedia = document.getElementById('statTotalMedia');
+            const statMessages = document.getElementById('statNewMessages');
+            
+            if (statOrders) statOrders.textContent = totalOrders;
+            if (statProducts) statProducts.textContent = products.length;
+            if (statServices) statServices.textContent = services.length;
+            if (statMedia) statMedia.textContent = media.length;
+            if (statMessages) statMessages.textContent = unreadMessages;
+            
+            // Badge سایدبار
+            const sidebarBadge = document.getElementById('sidebarMsgCount');
+            if (sidebarBadge) sidebarBadge.textContent = unreadMessages;
+            
+        } catch (err) {
+            console.error('Stats update error:', err);
+        }
+    }
+        
+        // =========================================
+        // 4. Recent Products — از API!
+        // =========================================
+        async function renderRecentProducts() {
+            const container = document.getElementById('recentProductsContainer');
+            if (!container) return;
+            
+            container.innerHTML = `
+                <div style="text-align:center; padding:30px; color:#A0AEC0;">
+                    <i class="fas fa-spinner fa-spin" style="font-size:24px;"></i>
+                </div>
+            `;
+            
+            try {
+                const response = await API.get('/products', { per_page: 4 });
+                const products = response.success ? (response.data.products || []) : [];
+                
+                if (products.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-recent-state">
+                            <i class="fas fa-box-open"></i>
+                            <h4>No Products Yet</h4>
+                            <p>Add your first product to get started.</p>
+                            <a href="add-product.html" class="btn-empty-action">
+                                <i class="fas fa-plus"></i> Add Product
+                            </a>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '<table class="data-table"><thead><tr>';
+                html += '<th>Product</th><th>Price</th><th>Status</th><th>Actions</th>';
+                html += '</tr></thead><tbody>';
+                
+                products.forEach(product => {
+                    const statusClass = (product.status || 'Active').toLowerCase();
+                    const statusText = product.status || 'Active';
+                    
+                    // عکس
+                    let imageSrc = 'assets/images/product-doctor-clinic.png';
+                    if (product.images && product.images.length > 0) {
+                        imageSrc = product.images[0].url;
+                    }
+                    
+                    html += `
+                        <tr>
+                            <td>
+                                <div class="recent-product-cell">
+                                    <img src="${imageSrc}" alt="${product.name}" onerror="this.src='assets/images/product-doctor-clinic.png'">
+                                    <div>
+                                        <strong>${product.name}</strong>
+                                        <span>${product.category || 'General'}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>$${product.price || '0'}</td>
+                            <td><span class="status ${statusClass}">${statusText}</span></td>
+                            <td>
+                                <div class="action-icons">
+                                    <a href="add-product.html?id=${product.id}" title="Edit"><i class="fas fa-edit"></i></a>
+                                    <a href="#" onclick="deleteProductFromDashboard(${product.id}); return false;" title="Delete"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                html += '</tbody></table>';
+                container.innerHTML = html;
+                
+            } catch (err) {
+                console.error('Recent products error:', err);
+                container.innerHTML = `
+                    <div style="text-align:center; padding:30px; color:#EF4444;">
+                        <i class="fas fa-exclamation-circle" style="font-size:24px;"></i>
+                        <p>Failed to load products</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // =========================================
+        // 5. Delete Product از Dashboard
+        // =========================================
+        window.deleteProductFromDashboard = async function(id) {
+            if (!confirm('Are you sure you want to delete this product?')) return;
+            
+            try {
+                const response = await API.del('/products/' + id);
+                
+                if (response.success) {
+                    if (window.showToast) {
+                        window.showToast('Product deleted successfully!', 'success');
+                    } else {
+                        alert('✅ Product deleted!');
+                    }
+                    
+                    // آپدیت همه چیز
+                    await renderRecentProducts();
+                    await updateStats();
+                } else {
+                    alert('⚠️ ' + (response.message || 'Failed to delete product'));
+                }
+            } catch (e) {
+                console.error('Delete error:', e);
+                alert('⚠️ Network error. Please try again.');
+            }
+        };
+        
+        // =========================================
+        // 6. Recent Messages — از API!
+        // =========================================
+        async function renderRecentMessages() {
+            const container = document.getElementById('recentMessagesContainer');
+            if (!container) return;
+            
+            container.innerHTML = `
+                <div style="text-align:center; padding:30px; color:#A0AEC0;">
+                    <i class="fas fa-spinner fa-spin" style="font-size:24px;"></i>
+                </div>
+            `;
+            
+            try {
+                const response = await API.get('/messages', { per_page: 4 });
+                const messages = response.success ? (response.data.messages || []) : [];
+                
+                if (messages.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-recent-state">
+                            <i class="far fa-envelope"></i>
+                            <h4>No Messages Yet</h4>
+                            <p>Messages from the contact form will appear here.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '<ul class="recent-messages-list">';
+                
+                messages.forEach(msg => {
+                    const initials = getInitials(msg.name);
+                    const colorClass = getAvatarColor(msg.name);
+                    const timeAgo = getTimeAgo(msg.created_at);
+                    const shortMsg = truncate(msg.message, 45);
+                    
+                    html += `
+                        <li onclick="window.location.href='messages-management.html'">
+                            <div class="msg-avatar ${colorClass}">${initials}</div>
+                            <div class="msg-info">
+                                <h4>${msg.name || 'Anonymous'}</h4>
+                                <p>${shortMsg}</p>
+                            </div>
+                            <span class="msg-time">${timeAgo}</span>
+                        </li>
+                    `;
+                });
+                
+                html += '</ul>';
+                container.innerHTML = html;
+                
+            } catch (err) {
+                console.error('Recent messages error:', err);
+                container.innerHTML = `
+                    <div class="empty-recent-state">
+                        <i class="fas fa-exclamation-circle" style="color:#EF4444;"></i>
+                        <h4>Failed to load messages</h4>
+                        <p>Please check your connection.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function getInitials(name) {
+            if (!name) return '?';
+            const parts = name.trim().split(' ');
+            if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+            return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
+        }
+        
+        function getAvatarColor(name) {
+            if (!name) return 'blue';
+            const colors = ['blue', 'purple', 'green', 'orange', 'pink', 'teal'];
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) {
+                hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            return colors[Math.abs(hash) % colors.length];
+        }
+        
+        function getTimeAgo(dateStr) {
+            if (!dateStr) return '';
+            
+            try {
+                const parts = dateStr.split(' ');
+                if (parts.length < 5) return dateStr.split(' ').slice(0, 2).join(' ');
+                
+                const months = {
+                    'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+                    'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+                };
+                
+                const day = parseInt(parts[0]);
+                const month = months[parts[1]];
+                const year = parseInt(parts[2]);
+                const timeParts = parts[3].split(':');
+                const hour = parseInt(timeParts[0]);
+                const minute = parseInt(timeParts[1]);
+                
+                const date = new Date(year, month, day, hour, minute);
+                const now = new Date();
+                const diffMs = now - date;
+                const diffMin = Math.floor(diffMs / 60000);
+                const diffHour = Math.floor(diffMs / 3600000);
+                const diffDay = Math.floor(diffMs / 86400000);
+                
+                if (diffMin < 1) return 'Just now';
+                if (diffMin < 60) return diffMin + 'm ago';
+                if (diffHour < 24) return diffHour + 'h ago';
+                if (diffDay < 7) return diffDay + 'd ago';
+                return parts[0] + ' ' + parts[1];
+            } catch (e) {
+                return dateStr.split(' ').slice(0, 2).join(' ');
+            }
+        }
+        
+        function truncate(str, maxLen) {
+            if (!str) return '';
+            return str.length > maxLen ? str.substring(0, maxLen) + '...' : str;
+        }
+        
+        // =========================================
+        // اجرای اولیه
+        // =========================================
+        loadCurrentUser();
+        updateDateTime();
+        await updateStats();
+        await renderRecentProducts();
+        await renderRecentMessages();
+        
+        // آپدیت ساعت هر دقیقه
+        setInterval(updateDateTime, 60000);
+        
+        console.log('✅ Dashboard Loaded Successfully (API-Based)');
+    });
+    </script>
+    <script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

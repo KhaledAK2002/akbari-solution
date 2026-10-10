@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Service - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search in services...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User">
+                    <div class="user-info"><h4>Mohammad Khalid</h4><span>Administrator</span></div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            
+            <div class="page-header-add">
+                <div class="header-left">
+                    <div>
+                        <span class="breadcrumb-text">
+                            <a href="dashboard.html">Dashboard</a> 
+                            <i class="fas fa-chevron-right"></i> 
+                            <a href="services-management.html">Services</a>
+                            <i class="fas fa-chevron-right"></i> 
+                            <span>Add New Service</span>
+                        </span>
+                        <h1>Add New Service</h1>
+                        <p>Fill in the details below to add a new service.</p>
+                    </div>
+                </div>
+                <a href="services-management.html" class="back-to-services-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Services
+                </a>
+            </div>
+
+            <form class="add-product-form" id="serviceForm">
+                <div class="add-product-grid">
+                    
+                    <!-- LEFT COLUMN -->
+                    <div class="form-column-left">
+                        
+                        <!-- Service Information -->
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-cog"></i>
+                                <h3>Service Information</h3>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Service Name <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="serviceName" placeholder="e.g. Custom Software Development" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Category <span class="required">*</span></label>
+                                <select class="form-select" id="serviceCategory" required>
+                                    <option value="">Select a category</option>
+                                    <option value="Software">Software</option>
+                                    <option value="Web">Web</option>
+                                    <option value="Database">Database</option>
+                                    <option value="Mobile App">Mobile App</option>
+                                    <option value="Consulting">Consulting</option>
+                                    <option value="Support">Support</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Short Description <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="shortDescription" placeholder="A brief description of the service (max 150 characters)" maxlength="150" required>
+                                <span class="char-counter"><span id="shortDescCount">0</span>/150</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Full Description <span class="required">*</span></label>
+                                <div class="rich-editor">
+                                    <div class="editor-toolbar">
+                                        <select class="editor-dropdown" id="formatSelect">
+                                            <option value="p">Paragraph</option>
+                                            <option value="h1">Heading 1</option>
+                                            <option value="h2">Heading 2</option>
+                                            <option value="h3">Heading 3</option>
+                                        </select>
+                                        <button type="button" class="toolbar-btn" data-command="bold" title="Bold"><i class="fas fa-bold"></i></button>
+                                        <button type="button" class="toolbar-btn" data-command="italic" title="Italic"><i class="fas fa-italic"></i></button>
+                                        <button type="button" class="toolbar-btn" data-command="underline" title="Underline"><i class="fas fa-underline"></i></button>
+                                        <span class="toolbar-separator"></span>
+                                        <button type="button" class="toolbar-btn" data-command="insertUnorderedList" title="Bullet List"><i class="fas fa-list-ul"></i></button>
+                                        <button type="button" class="toolbar-btn" data-command="insertOrderedList" title="Numbered List"><i class="fas fa-list-ol"></i></button>
+                                        <span class="toolbar-separator"></span>
+                                        <button type="button" class="toolbar-btn" data-command="createLink" title="Insert Link"><i class="fas fa-link"></i></button>
+                                        <button type="button" class="toolbar-btn" data-command="undo" title="Undo"><i class="fas fa-undo"></i></button>
+                                        <button type="button" class="toolbar-btn" data-command="redo" title="Redo"><i class="fas fa-redo"></i></button>
+                                    </div>
+                                    <div class="editor-textarea" id="fullDescription" contenteditable="true" data-placeholder="Write a detailed description of the service..."></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Service Features (Optional)</label>
+                                <div id="featuresContainer">
+                                    <div class="feature-row">
+                                        <input type="text" class="form-input feature-input" placeholder="e.g. Custom Design">
+                                        <input type="text" class="form-input feature-input" placeholder="e.g. Responsive Layout">
+                                        <input type="text" class="form-input feature-input" placeholder="e.g. Technical Support">
+                                        <button type="button" class="btn-remove-feature"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-add-feature" id="addFeatureBtn">
+                                    <i class="fas fa-plus"></i> Add Another Feature
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="form-column-right">
+                        
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-image"></i>
+                                <h3>Service Image</h3>
+                            </div>
+                            
+                            <div class="upload-area service-upload" id="uploadArea">
+                                <i class="fas fa-image upload-icon"></i>
+                                <h4 id="uploadText">Click to upload an image</h4>
+                                <p>PNG, JPG, JPEG (Max 2MB)</p>
+                                <small>Recommended size: 800 × 400</small>
+                                <input type="file" class="file-input" id="serviceImage" accept="image/*">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-toggle-on"></i>
+                                <h3>Status</h3>
+                            </div>
+                            
+                            <div class="status-toggle-row">
+                                <label class="switch">
+                                    <input type="checkbox" id="serviceStatus" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                                <div class="status-toggle-text">
+                                    <strong id="statusLabel">Active</strong>
+                                    <span id="statusDescription">This service will be visible on the website.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-header">
+                                <i class="fas fa-tag"></i>
+                                <h3>Meta Information (Optional)</h3>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Meta Title</label>
+                                <input type="text" class="form-input" id="metaTitle" placeholder="e.g. Software Development Services">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Meta Description</label>
+                                <textarea class="form-textarea" id="metaDescription" rows="3" placeholder="A short description for search engines..." maxlength="160"></textarea>
+                                <span class="char-counter"><span id="metaDescCount">0</span>/160</span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <a href="services-management.html" class="btn-cancel">Cancel</a>
+                            <button type="submit" class="btn-save">
+                                <i class="fas fa-save"></i> Save Service
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right"><span>Technology for a Better Tomorrow</span></div>
+        </footer>
+
+    </main>
+
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script>
+    // =========================================
+    // ADD/EDIT SERVICE - API Based
+    // =========================================
+    document.addEventListener('DOMContentLoaded', async () => {
+        const serviceForm = document.getElementById('serviceForm');
+        if (!serviceForm) return;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const editId = urlParams.get('id');
+        const isEdit = !!editId;
+
+        let pendingImageData = null; // base64 image
+
+        // =========================================
+        // EDIT MODE: لود اطلاعات از API
+        // =========================================
+        if (isEdit) {
+            const pageTitle = document.querySelector('.page-header-add h1');
+            const pageDesc = document.querySelector('.page-header-add p');
+            const saveBtn = document.querySelector('.btn-save');
+
+            if (pageTitle) pageTitle.textContent = 'Edit Service';
+            if (pageDesc) pageDesc.textContent = 'Update service details below.';
+            if (saveBtn) saveBtn.innerHTML = '<i class="fas fa-save"></i> Update Service';
+            document.title = 'Edit Service - Akbari Solution';
+
+            try {
+                const response = await API.get('/services/' + editId);
+
+                if (response.success) {
+                    const service = response.data;
+
+                    document.getElementById('serviceName').value = service.name || '';
+                    document.getElementById('serviceCategory').value = service.category || '';
+                    document.getElementById('shortDescription').value = service.short_desc || '';
+                    document.getElementById('fullDescription').innerHTML = service.full_desc || '';
+                    document.getElementById('metaTitle').value = service.meta_title || '';
+                    document.getElementById('metaDescription').value = service.meta_description || '';
+
+                    if (document.getElementById('shortDescCount')) {
+                        document.getElementById('shortDescCount').textContent = (service.short_desc || '').length;
+                    }
+                    if (document.getElementById('metaDescCount')) {
+                        document.getElementById('metaDescCount').textContent = (service.meta_description || '').length;
+                    }
+
+                    const statusCheckbox = document.getElementById('serviceStatus');
+                    if (statusCheckbox) {
+                        statusCheckbox.checked = service.status === 'Active';
+                        const statusLabel = document.getElementById('statusLabel');
+                        const statusDescription = document.getElementById('statusDescription');
+                        if (service.status === 'Active') {
+                            if (statusLabel) statusLabel.textContent = 'Active';
+                            if (statusDescription) statusDescription.textContent = 'This service will be visible on the website.';
+                        } else {
+                            if (statusLabel) statusLabel.textContent = 'Inactive';
+                            if (statusDescription) statusDescription.textContent = 'This service will be hidden from the website.';
+                        }
+                    }
+
+                    if (service.features && service.features.length > 0) {
+                        const featuresContainer = document.getElementById('featuresContainer');
+                        featuresContainer.innerHTML = '';
+
+                        const features = service.features;
+                        for (let i = 0; i < features.length; i += 3) {
+                            const row = document.createElement('div');
+                            row.className = 'feature-row';
+                            for (let j = 0; j < 3; j++) {
+                                const input = document.createElement('input');
+                                input.type = 'text';
+                                input.className = 'form-input feature-input';
+                                input.placeholder = `e.g. Feature ${i + j + 1}`;
+                                input.value = features[i + j] || '';
+                                row.appendChild(input);
+                            }
+                            const removeBtn = document.createElement('button');
+                            removeBtn.type = 'button';
+                            removeBtn.className = 'btn-remove-feature';
+                            removeBtn.innerHTML = '<i class="fas fa-trash"></i>';
+                            removeBtn.addEventListener('click', () => row.remove());
+                            row.appendChild(removeBtn);
+                            featuresContainer.appendChild(row);
+                        }
+                    }
+
+                    if (service.image) {
+                        const uploadText = document.getElementById('uploadText');
+                        if (uploadText) {
+                            uploadText.textContent = '✓ Current image: ' + service.name;
+                            uploadText.style.color = '#10B981';
+                        }
+                    }
+                } else {
+                    alert('⚠️ Service not found!');
+                    window.location.href = 'services-management.html';
+                }
+            } catch (e) {
+                console.error(e);
+                alert('⚠️ Failed to load service');
+            }
+        }
+
+        // =========================================
+        // STATUS TOGGLE
+        // =========================================
+        const statusCheckbox = document.getElementById('serviceStatus');
+        const statusLabel = document.getElementById('statusLabel');
+        const statusDescription = document.getElementById('statusDescription');
+
+        if (statusCheckbox) {
+            statusCheckbox.addEventListener('change', () => {
+                if (statusCheckbox.checked) {
+                    if (statusLabel) statusLabel.textContent = 'Active';
+                    if (statusDescription) statusDescription.textContent = 'This service will be visible on the website.';
+                } else {
+                    if (statusLabel) statusLabel.textContent = 'Inactive';
+                    if (statusDescription) statusDescription.textContent = 'This service will be hidden from the website.';
+                }
+            });
+        }
+
+        // =========================================
+        // CHAR COUNTERS
+        // =========================================
+        const shortDescInput = document.getElementById('shortDescription');
+        const shortDescCount = document.getElementById('shortDescCount');
+        if (shortDescInput && shortDescCount) {
+            shortDescInput.addEventListener('input', () => {
+                shortDescCount.textContent = shortDescInput.value.length;
+            });
+        }
+
+        const metaDescInput = document.getElementById('metaDescription');
+        const metaDescCount = document.getElementById('metaDescCount');
+        if (metaDescInput && metaDescCount) {
+            metaDescInput.addEventListener('input', () => {
+                metaDescCount.textContent = metaDescInput.value.length;
+            });
+        }
+
+        // =========================================
+        // FEATURE ROWS
+        // =========================================
+        const addFeatureBtn = document.getElementById('addFeatureBtn');
+        const featuresContainer = document.getElementById('featuresContainer');
+
+        if (addFeatureBtn && featuresContainer) {
+            addFeatureBtn.addEventListener('click', () => {
+                const row = document.createElement('div');
+                row.className = 'feature-row';
+                row.innerHTML = `
+                    <input type="text" class="form-input feature-input" placeholder="e.g. Feature">
+                    <input type="text" class="form-input feature-input" placeholder="e.g. Feature">
+                    <input type="text" class="form-input feature-input" placeholder="e.g. Feature">
+                    <button type="button" class="btn-remove-feature"><i class="fas fa-trash"></i></button>
+                `;
+                featuresContainer.appendChild(row);
+                row.querySelector('.btn-remove-feature').addEventListener('click', () => row.remove());
+            });
+        }
+
+        document.querySelectorAll('.btn-remove-feature').forEach(btn => {
+            btn.addEventListener('click', () => btn.closest('.feature-row').remove());
+        });
+
+        // =========================================
+        // IMAGE UPLOAD (Base64)
+        // =========================================
+        const serviceImageInput = document.getElementById('serviceImage');
+        const uploadText = document.getElementById('uploadText');
+
+        if (serviceImageInput) {
+            serviceImageInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('⚠️ Image is larger than 2MB');
+                    serviceImageInput.value = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    pendingImageData = event.target.result;
+                    if (uploadText) {
+                        uploadText.textContent = '✓ Selected: ' + file.name;
+                        uploadText.style.color = '#10B981';
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // =========================================
+        // SUBMIT FORM
+        // =========================================
+        serviceForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const featureInputs = document.querySelectorAll('.feature-input');
+            const features = [];
+            featureInputs.forEach(input => {
+                if (input.value.trim() !== '') features.push(input.value.trim());
+            });
+
+            const serviceData = {
+                name: document.getElementById('serviceName').value.trim(),
+                category: document.getElementById('serviceCategory').value,
+                short_desc: document.getElementById('shortDescription').value.trim(),
+                full_desc: document.getElementById('fullDescription').innerHTML,
+                features: features,
+                status: statusCheckbox?.checked ? 'Active' : 'Inactive',
+                meta_title: document.getElementById('metaTitle').value.trim(),
+                meta_description: document.getElementById('metaDescription').value.trim()
+            };
+
+            if (pendingImageData) {
+                serviceData.image_data = pendingImageData;
+            }
+
+            if (!serviceData.name || !serviceData.category || !serviceData.short_desc) {
+                alert('⚠️ Please fill in all required fields (Name, Category, Short Description).');
+                return;
+            }
+
+            const saveBtn = document.querySelector('.btn-save');
+            const originalBtnHTML = saveBtn ? saveBtn.innerHTML : '';
+            if (saveBtn) {
+                saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+                saveBtn.disabled = true;
+            }
+
+            try {
+                let response;
+
+                if (isEdit) {
+                    response = await API.put('/services/' + editId, serviceData);
+                } else {
+                    response = await API.post('/services', serviceData);
+                }
+
+                if (response.success) {
+                    if (window.logActivity) {
+                        window.logActivity(
+                            isEdit ? 'update' : 'add',
+                            isEdit ? `Updated service: ${serviceData.name}` : `Added new service: ${serviceData.name}`,
+                            isEdit ? 'warning' : 'success'
+                        );
+                    }
+
+                    alert(isEdit ? '✅ Service updated successfully!' : '✅ Service saved successfully!');
+                    window.location.href = 'services-management.html';
+                } else {
+                    alert('⚠️ ' + (response.message || 'Failed to save service'));
+                    if (saveBtn) {
+                        saveBtn.innerHTML = originalBtnHTML;
+                        saveBtn.disabled = false;
+                    }
+                }
+            } catch (err) {
+                console.error('Save error:', err);
+                alert('⚠️ Network error. Please try again.');
+                if (saveBtn) {
+                    saveBtn.innerHTML = originalBtnHTML;
+                    saveBtn.disabled = false;
+                }
+            }
+        });
+
+        // =========================================
+        // RICH TEXT EDITOR (Toolbar)
+        // =========================================
+        const editor = document.querySelector('.rich-editor');
+        if (editor) {
+            const toolbarBtns = editor.querySelectorAll('.toolbar-btn');
+            const editorArea = editor.querySelector('.editor-textarea[contenteditable="true"]');
+            const formatSelect = editor.querySelector('.editor-dropdown');
+
+            if (editorArea) {
+                toolbarBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const command = btn.getAttribute('data-command');
+                        if (!command) return;
+
+                        editorArea.focus();
+
+                        if (command === 'createLink') {
+                            const url = prompt('Enter the URL:', 'https://');
+                            if (url) document.execCommand('createLink', false, url);
+                        } else if (command === 'undo') {
+                            document.execCommand('undo', false, null);
+                        } else if (command === 'redo') {
+                            document.execCommand('redo', false, null);
+                        } else {
+                            document.execCommand(command, false, null);
+                        }
+                    });
+                });
+
+                if (formatSelect) {
+                    formatSelect.addEventListener('change', (e) => {
+                        const format = e.target.value;
+                        editorArea.focus();
+                        const tagMap = { 'p': '<p>', 'h1': '<h1>', 'h2': '<h2>', 'h3': '<h3>' };
+                        if (tagMap[format]) {
+                            document.execCommand('formatBlock', false, tagMap[format]);
+                        }
+                    });
+                }
+            }
+        }
+    });
+    </script>
+    <script src="js/sidebar-toggle.js"></script>
+</body>
+</html>

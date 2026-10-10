@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Akbari Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- === SIDEBAR === -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/images/logo.png" alt="Akbari Solution">
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products-management.html">
+                        <i class="fas fa-box"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services-management.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="orders-management.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                        <span class="badge-count" id="sidebarOrderCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Pages</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="home-management.html">Home</a></li>
+                        <li><a href="about-management.html">About Us</a></li>
+                        <li><a href="contact-management.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="media-library.html">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="messages-management.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                        <span class="badge-count" id="sidebarMsgCount">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="website-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Website Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-profile.html" class="active">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="logoutUser(); return false;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+            <div class="sidebar-tagline">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="main-content">
+        
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search in dashboard...">
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="user-profile">
+                    <img src="assets/images/avatar-ahmad.png" alt="User" id="topbarAvatar">
+                    <div class="user-info">
+                        <h4 id="topbarUserName">Loading...</h4>
+                        <span id="topbarUserRole">Loading...</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="dashboard-content">
+            
+            <!-- Page Header -->
+            <div class="profile-page-header">
+                <div>
+                    <span class="breadcrumb-text">
+                        <a href="dashboard.html">Dashboard</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>My Profile</span>
+                    </span>
+                    <h1>My Profile</h1>
+                    <p>View and update your basic information.</p>
+                </div>
+                <a href="account-settings.html" class="btn-account-settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Account Settings</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <!-- Profile Grid -->
+            <div class="profile-grid">
+                
+                <!-- LEFT: Profile Card -->
+                <div class="profile-card">
+                    
+                    <!-- Avatar -->
+                    <div class="profile-avatar-wrapper">
+                        <img src="assets/images/avatar-ahmad.png" id="profileAvatar" alt="Profile">
+                        <label class="avatar-edit-btn" for="avatarInput" title="Change Photo">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="avatarInput" accept="image/*" hidden>
+                    </div>
+
+                    <!-- Name & Role -->
+                    <h2 id="profileCardName">Loading...</h2>
+                    <span class="profile-role-badge" id="profileCardRole">Loading...</span>
+
+                    <!-- Contact Info -->
+                    <div class="profile-contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <span id="profileCardEmail">—</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <span id="profileCardPhone">—</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <span id="profileCardLocation">—</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: Personal Information Form -->
+                <div class="profile-form-card">
+                    
+                    <div class="profile-form-header">
+                        <div class="form-header-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h3>Personal Information</h3>
+                            <p>Update your basic profile information.</p>
+                        </div>
+                    </div>
+
+                    <form id="profileForm" class="profile-form">
+                        
+                        <!-- Row 1: Full Name + Email -->
+                        <div class="profile-form-row">
+                            <div class="profile-form-group">
+                                <label>Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" placeholder="Enter full name" required>
+                            </div>
+                            <div class="profile-form-group">
+                                <label>Email Address <span class="required">*</span></label>
+                                <div class="input-icon-right">
+                                    <input type="email" id="email" placeholder="Enter email address" required>
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Phone + Role -->
+                        <div class="profile-form-row">
+                            <div class="profile-form-group">
+                                <label>Phone Number</label>
+                                <div class="phone-input-group">
+                                    <div class="country-selector">
+                                        <img id="selectedFlag" src="https://flagcdn.com/w20/af.png" alt="Flag">
+                                        <select id="countryCode" class="country-select-overlay">
+                                            <option value="+93" data-code="af" selected>+93</option>
+                                            <option value="+92" data-code="pk">+92</option>
+                                            <option value="+98" data-code="ir">+98</option>
+                                            <option value="+1" data-code="us">+1</option>
+                                            <option value="+44" data-code="gb">+44</option>
+                                            <option value="+971" data-code="ae">+971</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down country-arrow"></i>
+                                    </div>
+                                    <input type="tel" id="phone" placeholder="78 231 13 65">
+                                </div>
+                            </div>
+                            <div class="profile-form-group">
+                                <label>Role</label>
+                                <select id="role" class="readonly-select" disabled>
+                                    <option>Loading...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Location (full width) -->
+                        <div class="profile-form-row">
+                            <div class="profile-form-group full-width">
+                                <label>Location</label>
+                                <div class="input-icon-right">
+                                    <input type="text" id="location" placeholder="Enter your location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="profile-form-actions">
+                            <button type="button" class="btn-profile-cancel" id="cancelBtn">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn-profile-save" id="saveBtn">
+                                <i class="fas fa-save"></i>
+                                Save Changes
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Akbari Solution. All rights reserved.</p>
+            <div class="footer-right">
+                <span>Technology for a Better Tomorrow</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ========================================= -->
+    <!-- SCRIPTS -->
+    <!-- ========================================= -->
+    <script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+    <script>
+    // ⚠️ محافظت: پنهان کردن Users/Permissions از غیر-Super-Admin
+    (function() {
+        try {
+            const userData = localStorage.getItem('akbari_user');
+            if (!userData) return;
+            
+            const user = JSON.parse(userData);
+            const role = user.role;
+            const isSuper = role === 'Super Administrator' || role === 'super_admin';
+            
+            if (!isSuper) {
+                // مخفی کردن Super Admin از dropdown ها
+                document.querySelectorAll('#userRole, #userRoleFilter, #permRoleSelect').forEach(select => {
+                    select.querySelectorAll('option[value="super_admin"], option[value="Super Administrator"]').forEach(opt => opt.remove());
+                });
+            }
+        } catch (e) {}
+    })();
+    </script>
+    <script src="js/api-client.js"></script>
+    <script src="js/global-settings.js"></script>
+    <script>
+        if (!Auth.isLoggedIn()) {
+            window.location.replace('login.html');
+        }
+    </script>
+    <script src="js/sidebar-badge.js"></script>
+    <script src="js/permissions-guard.js"></script>
+    <script src="js/my-profile.js"></script>
+    <script src="js/sidebar-toggle.js"></script>
+</body>
+</html>
