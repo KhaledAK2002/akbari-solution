@@ -12,13 +12,18 @@ WORKDIR /var/www/html
 # Copy project files
 COPY . /var/www/html/
 
-# ⚠️ AllowOverride All برای پوشه اصلی
-RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf \
-    && sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/sites-available/000-default.conf
-
-# Set permissions
+# Fix permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html \
     && chmod -R 777 /var/www/html/uploads
 
+# Configure Apache to allow .htaccess
+RUN echo '<Directory /var/www/html/>\n\
+    Options Indexes FollowSymLinks\n\
+    AllowOverride All\n\
+    Require all granted\n\
+</Directory>' > /etc/apache2/conf-available/custom.conf \
+    && a2enconf custom
+
+# Expose port 80
 EXPOSE 80
