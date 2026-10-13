@@ -1,8 +1,15 @@
 <?php
-$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-$isLocalhost = strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false;
+/**
+ * Database Configuration
+ * Auto-detect محیط (localhost / Railway)
+ */
+
+$isLocalhost = !isset($_ENV['RAILWAY_ENVIRONMENT']) 
+    && !isset($_SERVER['RAILWAY_ENVIRONMENT'])
+    && !getenv('RAILWAY_ENVIRONMENT');
 
 if ($isLocalhost) {
+    // === Localhost (XAMPP) ===
     return [
         'host' => 'localhost',
         'port' => 3306,
@@ -13,12 +20,13 @@ if ($isLocalhost) {
         'collation' => 'utf8mb4_unicode_ci'
     ];
 } else {
+    // === Railway Production ===
     return [
-        'host' => 'sql204.infinityfree.com',
-        'port' => 3306,
-        'database' => 'if0_43119523_akbari_solution',
-        'username' => 'if0_43119523',
-        'password' => 'PASSWORD_FTP_اینجا',
+        'host' => getenv('MYSQLHOST') ?: getenv('MYSQL_HOST'),
+        'port' => (int)(getenv('MYSQLPORT') ?: getenv('MYSQL_PORT') ?: 3306),
+        'database' => getenv('MYSQLDATABASE') ?: getenv('MYSQL_DATABASE'),
+        'username' => getenv('MYSQLUSER') ?: getenv('MYSQL_USER') ?: 'root',
+        'password' => getenv('MYSQLPASSWORD') ?: getenv('MYSQL_PASSWORD') ?: getenv('MYSQL_ROOT_PASSWORD'),
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci'
     ];
