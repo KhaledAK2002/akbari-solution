@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # اگه درخواست با /api/ شروع میشه، برو به api/index.php
+    # مسیر /api/ رو بفرست به api/index.php
     RewriteRule ^api/(.*)$ api/index.php [QSA,L]
 </IfModule>
