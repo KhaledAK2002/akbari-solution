@@ -1,13 +1,18 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /api/
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
 
-# جلوگیری از دسترسی مستقیم به فایل‌های حساس
-<FilesMatch "\.(php|json|md|sql)$">
-    <If "%{REQUEST_URI} !~ m#^/Akbari-Solution/api/index\.php#">
-        Require all denied
-    </If>
+# Allow access to index.php
+<Files "index.php">
+    Require all granted
+</Files>
+
+# Block direct access to sensitive files
+<FilesMatch "\.(json|md|sql)$">
+    Require all denied
 </FilesMatch>
