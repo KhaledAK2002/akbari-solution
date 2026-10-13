@@ -21,7 +21,7 @@
             ENV: 'localhost'
         },
         production: {
-            API_BASE: 'https://' + host + '/api/v1',
+            API_BASE: 'https://' + host + '/v1',
             SITE_URL: 'https://' + host,
             UPLOADS_URL: 'https://' + host + '/uploads',
             ENV: 'production'
