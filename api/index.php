@@ -4,6 +4,15 @@
  * نقطه ورود API
  */
 
+// ⚠️ Railway fix: handle /api/ base path
+if (isset($_SERVER['REQUEST_URI'])) {
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    if (strpos($uri, '/api/') === 0) {
+        $_SERVER['REQUEST_URI'] = substr($uri, 4);
+    }
+}   
+
+
 // =========================================
 // 1. Autoloader
 // =========================================
