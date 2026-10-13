@@ -1,18 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /api/
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php [QSA,L]
+    
+    # اگه درخواست با /api/ شروع میشه، برو به api/index.php
+    RewriteRule ^api/(.*)$ api/index.php [QSA,L]
 </IfModule>
-
-# Allow access to index.php
-<Files "index.php">
-    Require all granted
-</Files>
-
-# Block direct access to sensitive files
-<FilesMatch "\.(json|md|sql)$">
-    Require all denied
-</FilesMatch>
