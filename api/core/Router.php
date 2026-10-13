@@ -58,12 +58,15 @@ class Router {
         $method = Request::method();
         $uri = Request::uri();
 
-        // حذف base path
+        // حذف base path (auto-detect)
         $basePath = '/Akbari-Solution/api';
         if (strpos($uri, $basePath) === 0) {
             $uri = substr($uri, strlen($basePath));
         }
-
+        // Railway: /api base path
+        elseif (strpos($uri, '/api') === 0) {
+            $uri = substr($uri, 4);
+        }
         $uri = '/' . trim($uri, '/');
 
         foreach ($this->routes as $route) {
